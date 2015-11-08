@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.team3.whisk" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:parentActivityName=".SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.SplashScreen" />
+        </activity>
+        <activity
+            android:name=".Filter"
+            android:label="@string/title_activity_filter"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Home" />
+        </activity>
+        <activity
+            android:name=".Recipe"
+            android:label="@string/title_activity_recipe"
+            android:parentActivityName=".Filter"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Filter" />
+        </activity>
+        <activity
+            android:name=".SearchNutrition"
+            android:label="@string/title_activity_search_nutrition"
+            android:parentActivityName=".Recipe"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Recipe" />
+        </activity>
+        <activity
+            android:name=".OutputNutrition"
+            android:label="@string/title_activity_output_nutrition"
+            android:parentActivityName=".SearchNutrition"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.SearchNutrition" />
+        </activity>
+    </application>
+
+</manifest>

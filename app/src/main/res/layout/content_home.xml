@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_home"
+    tools:context="com.example.team3.whisk.Home">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Search"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Allergens"
+        android:id="@+id/allergens"
+        android:textStyle="bold"
+        android:layout_gravity="center|left"
+        android:layout_below="@+id/search"
+        android:layout_alignParentStart="true"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tree Nuts"
+        android:id="@+id/tnuts"
+        android:checked="false"
+        android:layout_below="@+id/allergens"
+        android:layout_gravity="center|left"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dairy"
+        android:id="@+id/dairy"
+        android:checked="false"
+        android:layout_gravity="center|left"
+        android:layout_alignTop="@+id/tnuts"
+        android:layout_alignStart="@+id/fiber"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wheat"
+        android:id="@+id/wheat"
+        android:checked="false"
+        android:layout_gravity="center|left"
+        android:onClick="selectItem"
+        android:layout_alignTop="@+id/dairy"
+        android:layout_toEndOf="@+id/fiber"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soy"
+        android:id="@+id/soy"
+        android:layout_below="@+id/dairy"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_gravity="center|left"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fish"
+        android:id="@+id/fish"
+        android:checked="false"
+        android:layout_below="@+id/dairy"
+        android:layout_alignStart="@+id/dairy"
+        android:layout_gravity="center|left"
+        android:onClick="selectItem"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Results"
+        android:id="@+id/button"
+        android:onClick="onSubmit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Diet"
+        android:id="@+id/diet"
+        android:textStyle="bold"
+        android:layout_below="@+id/eggs"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low Sodium"
+        android:id="@+id/sodium"
+        android:layout_below="@+id/diet"
+        android:layout_alignStart="@+id/diet"
+        android:checked="false"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low Carb"
+        android:id="@+id/carb"
+        android:checked="false"
+        android:layout_alignTop="@+id/vegan"
+        android:layout_alignStart="@+id/fiber"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Fiber"
+        android:id="@+id/fiber"
+        android:checked="false"
+        android:layout_alignTop="@+id/sodium"
+        android:layout_centerHorizontal="true"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegan"
+        android:id="@+id/vegan"
+        android:layout_below="@+id/sodium"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Protein"
+        android:id="@+id/protein"
+        android:checked="false"
+        android:layout_alignTop="@+id/fiber"
+        android:layout_toEndOf="@+id/fiber"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low Fat"
+        android:id="@+id/fat"
+        android:checked="false"
+        android:layout_alignTop="@+id/carb"
+        android:layout_toEndOf="@+id/fiber"
+        android:onClick="selectItem"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/search"
+        android:layout_below="@+id/textView"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Paleo"
+        android:id="@+id/paleo"
+        android:checked="false"
+        android:layout_below="@+id/vegan"
+        android:layout_alignParentStart="true"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Peanuts"
+        android:id="@+id/pnuts"
+        android:layout_below="@+id/wheat"
+        android:layout_alignStart="@+id/wheat"
+        android:checked="false"
+        android:onClick="selectItem"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Eggs"
+        android:id="@+id/eggs"
+        android:layout_below="@+id/soy"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="selectItem"
+        />
+
+</RelativeLayout>
