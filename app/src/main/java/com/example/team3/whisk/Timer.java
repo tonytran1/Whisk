@@ -1,11 +1,8 @@
 package com.example.team3.whisk;
 
-import android.app.AlertDialog;
-import android.app.ListActivity;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.sqlite.SQLiteStatement;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -17,25 +14,88 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-public class Recipe extends AppCompatActivity
+public class Timer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ArrayList<String> ingredient;
-    ArrayList<String> ingredientText;
-    ArrayList<String> nutrition;
-    String recipeName;
+
+    SeekBar timerSeekBar;
+    TextView timerTextView;
+    Button controllerButton;
+    Boolean counterIsActive = false;
+    CountDownTimer countDownTimer;
+
+    public void resetTimer() {
+
+        timerTextView.setText("0:30");
+        timerSeekBar.setProgress(30);
+        countDownTimer.cancel();
+        controllerButton.setText("Go!");
+        timerSeekBar.setEnabled(true);
+        counterIsActive = false;
+
+    }
+
+    public void updateTimer(int secondsLeft) {
+
+        int minutes = (int) secondsLeft / 60;
+        int seconds = secondsLeft - minutes * 60;
+
+        String secondString = Integer.toString(seconds);
+
+        if (seconds <= 9) {
+
+            secondString = "0" + secondString;
+
+        }
+
+        timerTextView.setText(Integer.toString(minutes) + ":" + secondString);
+
+    }
+
+
+    public void controlTimer(View view) {
+
+        if (counterIsActive == false) {
+
+            counterIsActive = true;
+            timerSeekBar.setEnabled(false);
+            controllerButton.setText("Stop");
+
+            countDownTimer = new CountDownTimer(timerSeekBar.getProgress() * 1000 + 100, 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                    updateTimer((int) millisUntilFinished / 1000);
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    resetTimer();
+                    MediaPlayer mplayer = MediaPlayer.create(getApplicationContext(), R.raw.airhorn);
+                    mplayer.start();
+
+                }
+            }.start();
+
+        } else {
+
+            resetTimer();
+
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe);
+        setContentView(R.layout.activity_timer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,35 +117,32 @@ public class Recipe extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ListView recipeList = (ListView) findViewById(android.R.id.list);
-        Bundle bundle = getIntent().getExtras();
+        timerSeekBar = (SeekBar)findViewById(R.id.timerSeekBar);
+        timerTextView = (TextView)findViewById(R.id.timerTextView);
+        controllerButton = (Button)findViewById(R.id.controllerButton);
 
-        if (bundle != null)
-        {
-            recipeName = bundle.getString("recipeName");
-            ingredient = bundle.getStringArrayList("recipeIngredient");
-            ingredientText = bundle.getStringArrayList("recipeIngredientText");
-            nutrition = bundle.getStringArrayList("recipeNutrition");
-        }
-        TextView title = (TextView) findViewById(R.id.RecipeTitle);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                ingredientText );
-        title.setText(recipeName);
-        recipeList.setAdapter(arrayAdapter);
+        timerSeekBar.setMax(6000);
+        timerSeekBar.setProgress(30);
 
-        recipeList.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                        Intent intent = new Intent(Recipe.this, SearchNutrition.class);
-                        String food = ingredient.get(position);
-                        intent.putExtra("food", food);
-                        startActivity(intent);
-                    }
-                }
-        );
+        timerSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                updateTimer(progress);
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
     }
 
     @Override
@@ -101,7 +158,7 @@ public class Recipe extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.recipe, menu);
+        getMenuInflater().inflate(R.menu.timer, menu);
         return true;
     }
 
@@ -144,25 +201,4 @@ public class Recipe extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-    public void showAlert() {
-
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Save Recipe")
-                .setMessage("Do you want to save this recipe?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        //saveFavorites();
-                        return;
-                    }
-                })
-                .setNegativeButton("No", null)
-                .show();
-
-    }
-
 }

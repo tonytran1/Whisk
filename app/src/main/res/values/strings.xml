@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Whisk</string>
     <string name="action_settings">Settings</string>
+    <string name="Save">Save</string>\
     <string name="title_activity_navigation">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -17,5 +18,7 @@
     <string name="Eggs">Eggs</string>
     <string name="title_activity_nutrition">Nutrition</string>
     <string name="title_activity_nutrition_output">NutritionOutput</string>
+    <string name="title_activity_timer">Timer</string>
+    <string name="title_activity_timer_dennis">TimerDennis</string>
 
 </resources>

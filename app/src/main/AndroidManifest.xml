@@ -65,6 +65,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.SearchNutrition" />
         </activity>
+        <activity
+            android:name=".Timer"
+            android:label="@string/title_activity_timer"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Home" />
+        </activity>
+        <activity
+            android:name=".TimerDennis"
+            android:label="@string/title_activity_timer_dennis"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Home" />
+        </activity>
     </application>
 
 </manifest>
