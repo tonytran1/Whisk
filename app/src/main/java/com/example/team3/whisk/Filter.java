@@ -97,6 +97,9 @@ public class Filter extends AppCompatActivity
                             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                                 Intent intent = new Intent(Filter.this, Recipe.class);
                                 EdamamResponse.HitsEntity.RecipeEntity recipe = responseObj.getHits().get(position).getRecipe();
+
+                                String preference = gson.toJson(responseObj.getHits().get(position).getRecipe());
+
                                 foodText.clear();
                                 for (int i = 0; i < recipe.getIngredients().size(); i++) {
                                     food.add((String) recipe.getIngredients().get(i).getFood());
@@ -108,6 +111,8 @@ public class Filter extends AppCompatActivity
                                 intent.putExtra("recipeIngredientText", foodText);
                                 intent.putExtra("recipeIngredient", food);
                                 intent.putExtra("recipeName", recipeName);
+                                intent.putExtra("preference", preference);
+
                                 //intent.putExtra("recipeNutrition", obtainNutrition(recipe));
                                 startActivity(intent);
                             }

@@ -1,6 +1,7 @@
 package com.example.team3.whisk;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,10 @@ import java.util.List;
  */
 public class RecipeAdapter extends BaseAdapter
 {
+
+    String recipeName;
+    SQLiteDatabase recipeDB;
+
     private List<EdamamResponse.HitsEntity> rItem;
     private Context rContext;
 

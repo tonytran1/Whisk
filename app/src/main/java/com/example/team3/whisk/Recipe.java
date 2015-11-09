@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -31,6 +36,11 @@ public class Recipe extends AppCompatActivity
     ArrayList<String> ingredientText;
     ArrayList<String> nutrition;
     String recipeName;
+    SQLiteDatabase recipeDB;
+    String preference = "";
+    ArrayAdapter arrayAdapter;
+    String responseStr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,8 @@ public class Recipe extends AppCompatActivity
         setContentView(R.layout.activity_recipe);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, preference VARCHAR)");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +78,8 @@ public class Recipe extends AppCompatActivity
             ingredient = bundle.getStringArrayList("recipeIngredient");
             ingredientText = bundle.getStringArrayList("recipeIngredientText");
             nutrition = bundle.getStringArrayList("recipeNutrition");
+            preference = bundle.getString("preference");
+
         }
         TextView title = (TextView) findViewById(R.id.RecipeTitle);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
@@ -87,6 +101,51 @@ public class Recipe extends AppCompatActivity
                 }
         );
     }
+    public String updateListView() {
+
+        String selectQuery = "SELECT * FROM favorites";
+
+        try {
+            if (recipeDB.equals(null)){
+
+                Toast.makeText(this, "Database empty", Toast.LENGTH_LONG).show();
+
+            }
+
+            Cursor c = recipeDB.rawQuery(selectQuery, null);
+
+            int preferenceIndex = c.getColumnIndex("preference");
+            int idIndex = c.getColumnIndex("id");
+            c.moveToFirst();
+
+            int i = 0;
+            while (c != null) {
+                responseStr += c.getString(preferenceIndex);
+                c.moveToNext();
+            }
+            arrayAdapter.notifyDataSetChanged();
+
+            return responseStr;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+    public void saveFavorites(){
+
+        try {
+            String sql = "INSERT INTO favorites (preference) VALUES ('" + preference + "')";
+            recipeDB.execSQL(sql);
+        }catch (Exception e) {
+
+            Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -126,13 +185,23 @@ public class Recipe extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_timer) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_preferences) {
+
+            Intent intent = new Intent(getApplicationContext(), Preferences.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_save) {
+
+            showAlert();
 
         } else if (id == R.id.nav_share) {
 
@@ -156,7 +225,7 @@ public class Recipe extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        //saveFavorites();
+                        saveFavorites();
                         return;
                     }
                 })

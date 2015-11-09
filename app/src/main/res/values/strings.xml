@@ -20,5 +20,6 @@
     <string name="title_activity_nutrition_output">NutritionOutput</string>
     <string name="title_activity_timer">Timer</string>
     <string name="title_activity_timer_dennis">TimerDennis</string>
+    <string name="title_activity_preferences">Preferences</string>
 
 </resources>
