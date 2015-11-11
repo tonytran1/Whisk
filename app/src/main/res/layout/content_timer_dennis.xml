@@ -9,4 +9,95 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_timer_dennis" tools:context="com.example.team3.whisk.TimerDennis">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/time_text"
+        android:id="@+id/timeText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="134dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="@string/button_begin"
+        android:id="@+id/buttonOne"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:background="@drawable/start"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="@string/resetString"
+        android:id="@+id/buttonTwo"
+        android:layout_alignBottom="@+id/buttonOne"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="47dp"
+        android:layout_marginEnd="47dp"
+        android:background="@drawable/reset"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mintext"
+        android:maxLength="2"
+        android:hint="@string/minuteString"
+        android:layout_alignBottom="@+id/timeText"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hrtext"
+        android:maxLength="2"
+        android:hint="@string/hourString"
+        android:layout_alignTop="@+id/mintext"
+        android:layout_toLeftOf="@+id/timeText"
+        android:layout_toStartOf="@+id/timeText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sectext"
+        android:maxLength="2"
+        android:hint="@string/secondString"
+        android:layout_alignTop="@+id/mintext"
+        android:layout_toRightOf="@+id/timeText"
+        android:layout_toEndOf="@+id/timeText" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="@string/stringPause"
+        android:id="@+id/buttonPause"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/buttonOne"
+        android:layout_alignStart="@+id/buttonOne"
+        android:background="@drawable/pause"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="@string/stringResume"
+        android:id="@+id/buttonResume"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/buttonOne"
+        android:layout_alignStart="@+id/buttonOne"
+        android:background="@drawable/resume"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/stopRing"
+        android:background="@drawable/bell"
+        android:layout_alignTop="@+id/mintext"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

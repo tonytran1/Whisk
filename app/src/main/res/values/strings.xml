@@ -20,5 +20,17 @@
     <string name="title_activity_nutrition_output">NutritionOutput</string>
     <string name="title_activity_timer">Timer</string>
     <string name="title_activity_timer_dennis">TimerDennis</string>
+    <string name="title_activity_preferences">Preferences</string>
+    <string name="time_text">0:00:00</string>
+    <string name="button_begin">Start</string>
+    <string name="button_end">Done</string>
+    <string name="hourString">Hr</string>
+    <string name="minuteString">Mn</string>
+    <string name="secondString">Sc</string>
+    <string name="resetString">RESET</string>
+    <string name="stringPause">Pause</string>
+    <string name="stringResume">Resume</string>
+    <string name="title_activity_timer_notification">TimerNotification</string>
+    <string name="stopRingingString">Stop Ringing !!!</string>
 
 </resources>

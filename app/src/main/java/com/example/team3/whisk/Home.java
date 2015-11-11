@@ -202,16 +202,21 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-            Intent intent = new Intent(getApplicationContext(), Timer.class);
+            Intent intent = new Intent(getApplicationContext(), Home.class);
             startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_timer) {
 
+            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_preferences) {
 
-        } else if (id == R.id.nav_manage) {
+            Intent intent = new Intent(getApplicationContext(), Filter.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_save) {
 
         } else if (id == R.id.nav_share) {
 

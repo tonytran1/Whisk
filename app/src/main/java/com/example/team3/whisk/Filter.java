@@ -1,6 +1,8 @@
 package com.example.team3.whisk;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,7 +43,11 @@ public class Filter extends AppCompatActivity
     RecipeAdapter adapter;
     Gson gson;
     AsyncHttpClient client;
-
+    ArrayAdapter arrayAdapter;
+    String responseStr;
+    SQLiteDatabase recipeDB;
+    String recipeSource = "";
+    String recipeUrl = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +79,10 @@ public class Filter extends AppCompatActivity
             param = bundle.getStringArrayList("list");
             search = bundle.getString("search");
         }
+        else {
+            search = updateListView();
+            param = null;
+        }
 
         listView = (ListView) findViewById(R.id.recipeList);
         client = new AsyncHttpClient();
@@ -97,6 +108,9 @@ public class Filter extends AppCompatActivity
                             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                                 Intent intent = new Intent(Filter.this, Recipe.class);
                                 EdamamResponse.HitsEntity.RecipeEntity recipe = responseObj.getHits().get(position).getRecipe();
+
+                                String preference = gson.toJson(responseObj.getHits().get(position).getRecipe());
+
                                 foodText.clear();
                                 for (int i = 0; i < recipe.getIngredients().size(); i++) {
                                     food.add((String) recipe.getIngredients().get(i).getFood());
@@ -105,9 +119,14 @@ public class Filter extends AppCompatActivity
                                     foodText.add((String) recipe.getIngredients().get(i).getText());
                                 }
                                 recipeName = recipe.getLabel();
+                                recipeSource = recipe.getSource();
+                                recipeUrl = recipe.getUrl();
                                 intent.putExtra("recipeIngredientText", foodText);
                                 intent.putExtra("recipeIngredient", food);
                                 intent.putExtra("recipeName", recipeName);
+                                intent.putExtra("recipeSource", recipeSource);
+                                intent.putExtra("recipeUrl", recipeUrl);
+
                                 //intent.putExtra("recipeNutrition", obtainNutrition(recipe));
                                 startActivity(intent);
                             }
@@ -119,13 +138,56 @@ public class Filter extends AppCompatActivity
         });
     }
 
+
+    public String updateListView() {
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+
+        String selectQuery = "SELECT * FROM favorites";
+
+        try {
+            if (recipeDB.equals(null)){
+
+                Toast.makeText(this, "You do noy have any save recipes", Toast.LENGTH_LONG).show();
+
+            }
+
+            Cursor c = recipeDB.rawQuery(selectQuery, null);
+
+            int ingredientsIndex = c.getColumnIndex("ingredients");
+            int recipeSourceIndex = c.getColumnIndex("recipeSource");
+            int recipeUrlIndex = c.getColumnIndex("recipeUrl");
+
+            int idIndex = c.getColumnIndex("id");
+            c.moveToFirst();
+            //search = c.getString(recipeTitleIndex) + " " + c.getString(recipeSourceIndex);
+            search = c.getString(ingredientsIndex);
+            c.moveToNext();
+            int i = 0;
+            arrayAdapter.notifyDataSetChanged();
+
+            return search;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return search;
+
+        }
+    }
+
     public String obtainURL(ArrayList<String> param, String search) {
         String URL = "https://api.edamam.com/search?q=" + search + "&from=0&to=10&app_id=e494d87e&app_key=b057bd4f328ed351264e6be95f68ecd1";
 
-        for (int i = 0; i < param.size(); i++)
-        {
-            URL += param.get(i);
+        if (param != null){
+
+            for (int i = 0; i < param.size(); i++)
+            {
+                URL += param.get(i);
+            }
         }
+
 
         return URL;
     }

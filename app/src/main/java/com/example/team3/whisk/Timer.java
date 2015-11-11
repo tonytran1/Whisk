@@ -1,5 +1,6 @@
 package com.example.team3.whisk;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -185,7 +186,13 @@ public class Timer extends AppCompatActivity
 
         if (id == R.id.nav_camara) {
             // Handle the camera action
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_gallery) {
+
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
