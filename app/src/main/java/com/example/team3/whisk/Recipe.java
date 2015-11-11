@@ -35,11 +35,13 @@ public class Recipe extends AppCompatActivity
     ArrayList<String> ingredient;
     ArrayList<String> ingredientText;
     ArrayList<String> nutrition;
-    String recipeName;
+    String recipeName = "";
     SQLiteDatabase recipeDB;
     String preference = "";
     ArrayAdapter arrayAdapter;
-    String responseStr;
+    String responseStr = "";
+    String recipeSource = "";
+    String recipeUrl = "";
 
 
     @Override
@@ -49,7 +51,7 @@ public class Recipe extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
-        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, preference VARCHAR)");
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, ingredients VARCHAR)");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +80,9 @@ public class Recipe extends AppCompatActivity
             ingredient = bundle.getStringArrayList("recipeIngredient");
             ingredientText = bundle.getStringArrayList("recipeIngredientText");
             nutrition = bundle.getStringArrayList("recipeNutrition");
-            preference = bundle.getString("preference");
+            recipeSource = bundle.getString("recipeSource");
+            recipeUrl = bundle.getString("recipeUrl");
+
 
         }
         TextView title = (TextView) findViewById(R.id.RecipeTitle);
@@ -101,48 +105,21 @@ public class Recipe extends AppCompatActivity
                 }
         );
     }
-    public String updateListView() {
 
-        String selectQuery = "SELECT * FROM favorites";
-
-        try {
-            if (recipeDB.equals(null)){
-
-                Toast.makeText(this, "Database empty", Toast.LENGTH_LONG).show();
-
-            }
-
-            Cursor c = recipeDB.rawQuery(selectQuery, null);
-
-            int preferenceIndex = c.getColumnIndex("preference");
-            int idIndex = c.getColumnIndex("id");
-            c.moveToFirst();
-
-            int i = 0;
-            while (c != null) {
-                responseStr += c.getString(preferenceIndex);
-                c.moveToNext();
-            }
-            arrayAdapter.notifyDataSetChanged();
-
-            return responseStr;
-
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
-        return null;
-    }
     public void saveFavorites(){
 
         try {
-            String sql = "INSERT INTO favorites (preference) VALUES ('" + preference + "')";
+
+            Gson gson = new Gson();
+
+            String ingredients = gson.toJson(ingredientText);
+            String sql = "INSERT INTO favorites (ingredients) VALUES ('"+ingredients+"')";
             recipeDB.execSQL(sql);
+            Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
+
         }catch (Exception e) {
 
-            Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Not able to save", Toast.LENGTH_LONG).show();
         }
     }
 

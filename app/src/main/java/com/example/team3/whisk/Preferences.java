@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -35,6 +36,10 @@ public class Preferences extends AppCompatActivity
     Gson gson;
     ArrayAdapter arrayAdapter;
     String responseStr;
+    SQLiteDatabase recipeDB;
+    String search;
+
+
 
 
 
@@ -47,10 +52,9 @@ public class Preferences extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        listView = (ListView) findViewById(R.id.recipeList);
+        /*listView = (ListView) findViewById(R.id.recipeList);
         gson = new Gson();
-        Recipe recipeObj = new Recipe();
-        responseStr = recipeObj.updateListView();
+        updateListView();
         responseObj = gson.fromJson(responseStr, EdamamResponse.class);
         adapter = new RecipeAdapter(responseObj.getHits(), Preferences.this);
         listView.setAdapter(adapter);
@@ -76,7 +80,7 @@ public class Preferences extends AppCompatActivity
                         startActivity(intent);
                     }
                 }
-        );
+        );*/
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +101,44 @@ public class Preferences extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+
+    public String updateListView() {
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+
+        String selectQuery = "SELECT * FROM favorites";
+
+        try {
+            if (recipeDB.equals(null)){
+
+                Toast.makeText(this, "Database empty", Toast.LENGTH_LONG).show();
+
+            }
+
+            Cursor c = recipeDB.rawQuery(selectQuery, null);
+
+            int preferenceIndex = c.getColumnIndex("preference");
+            int idIndex = c.getColumnIndex("id");
+            c.moveToFirst();
+            search = c.getString(preferenceIndex);
+            c.moveToNext();
+            int i = 0;
+            while (c != null) {
+                search = search + "," + c.getString(preferenceIndex);
+                c.moveToNext();
+            }
+            arrayAdapter.notifyDataSetChanged();
+
+            return responseStr;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return null;
+    }
 
 
 
