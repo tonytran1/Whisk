@@ -9,10 +9,10 @@
     <string name="eula">Eula: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis, est in pulvinar varius, nulla metus suscipit enim, eu volutpat sem magna sed lacus. Donec tempor libero eget dui euismod eget luctus libero tempor. Quisque felis mauris, malesuada accumsan vulputate quis, sodales et nibh. Mauris tellus neque, interdum quis blandit sagittis, tincidunt at urna. Cras luctus feugiat metus, in sollicitudin felis laoreet sed. Mauris posuere mattis felis. Morbi enim odio, accumsan ac tincidunt pharetra, mattis sit amet turpis. Vivamus lobortis aliquet ante nec aliquet. Suspendisse potenti. Praesent rutrum condimentum ante et congue. In faucibus posuere arcu, ut congue sem dictum ac. Cras ante libero, pellentesque et fermentum ut, congue nec mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed euismod malesuada sapien ut eleifend. </string>
     <string name="updates">Upates in this version: Donec sollicitudin sodales turpis eget congue. Nulla facilisi. Proin facilisis eros vel mauris mollis tempus. </string>
     <string name="title_activity_home">Home</string>
-    <string name="title_activity_filter">Filter</string>
-    <string name="title_activity_recipe">Recipe</string>
-    <string name="title_activity_search_nutrition">SearchNutrition</string>
-    <string name="title_activity_output_nutrition">OutputNutrition</string>
+    <string name="title_activity_filter">Recipes</string>
+    <string name="title_activity_recipe">Ingredients</string>
+    <string name="title_activity_search_nutrition">Types</string>
+    <string name="title_activity_output_nutrition">Contents </string>
     <string name="Paleo">Paleo</string>
     <string name="Peanuts">Peanuts</string>
     <string name="Eggs">Eggs</string>
@@ -40,6 +40,6 @@
 
     <string name="action_example">Example action</string>
     <string name="title_activity_url_view">UrlView</string>
-    <string name="title_activity_ur_lview">UrLView</string>
+    <string name="title_activity_ur_lview">Recipe</string>
 
 </resources>

@@ -91,14 +91,16 @@
         android:onClick="selectItem"
         />
 
-    <Button
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Results"
         android:id="@+id/button"
         android:onClick="onSubmit"
+        android:background="@drawable/button_selector"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView"
+        android:layout_alignStart="@+id/carb"
         />
 
     <TextView

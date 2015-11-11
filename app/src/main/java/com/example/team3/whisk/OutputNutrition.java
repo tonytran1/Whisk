@@ -1,5 +1,6 @@
 package com.example.team3.whisk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -42,8 +43,8 @@ public class OutputNutrition extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
             }
         });
 
@@ -192,13 +193,21 @@ public class OutputNutrition extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_timer) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_preferences) {
+
+            Intent intent = new Intent(getApplicationContext(), Filter.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_save) {
 
         } else if (id == R.id.nav_share) {
 
