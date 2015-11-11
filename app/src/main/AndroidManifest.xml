@@ -92,6 +92,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
         </activity>
+        <activity
+            android:name=".UrLView"
+            android:label="@string/title_activity_ur_lview"
+            android:parentActivityName=".Filter"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Filter" />
+        </activity>
     </application>
 
 </manifest>

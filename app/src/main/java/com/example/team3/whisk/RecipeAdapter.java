@@ -1,7 +1,6 @@
 package com.example.team3.whisk;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +14,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by abhi on 11/8/15.
- */
+
 public class RecipeAdapter extends BaseAdapter
 {
-
-    String recipeName;
-    SQLiteDatabase recipeDB;
-
     private List<EdamamResponse.HitsEntity> rItem;
     private Context rContext;
 
@@ -75,6 +68,10 @@ public class RecipeAdapter extends BaseAdapter
         DecimalFormat df = new DecimalFormat("0.00");
 
         EdamamResponse.HitsEntity.RecipeEntity.TotalNutrientsEntity nutrition = recipe.getTotalNutrients();
+
+        try {
+            recipeNutrition.add("Calories: " + df.format(nutrition.getENERC_KCAL().getQuantity()) + "Cal\n");
+        }   catch(NullPointerException e){}
 
         try {
             recipeNutrition.add("Fat: " + df.format(nutrition.getFAT().getQuantity()) + nutrition.getFAT().getUnit() + "\n");

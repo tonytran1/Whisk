@@ -48,6 +48,7 @@ public class Filter extends AppCompatActivity
     SQLiteDatabase recipeDB;
     String recipeSource = "";
     String recipeUrl = "";
+    String recipeURL = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +107,7 @@ public class Filter extends AppCompatActivity
                         new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                                Intent intent = new Intent(Filter.this, Recipe.class);
+                                Intent intent = new Intent(Filter.this, UrLView.class);
                                 EdamamResponse.HitsEntity.RecipeEntity recipe = responseObj.getHits().get(position).getRecipe();
 
                                 String preference = gson.toJson(responseObj.getHits().get(position).getRecipe());
@@ -121,11 +122,13 @@ public class Filter extends AppCompatActivity
                                 recipeName = recipe.getLabel();
                                 recipeSource = recipe.getSource();
                                 recipeUrl = recipe.getUrl();
+                                recipeURL = recipe.getUrl();
                                 intent.putExtra("recipeIngredientText", foodText);
                                 intent.putExtra("recipeIngredient", food);
                                 intent.putExtra("recipeName", recipeName);
                                 intent.putExtra("recipeSource", recipeSource);
                                 intent.putExtra("recipeUrl", recipeUrl);
+                                intent.putExtra("recipeURL", recipeURL);
 
                                 //intent.putExtra("recipeNutrition", obtainNutrition(recipe));
                                 startActivity(intent);
