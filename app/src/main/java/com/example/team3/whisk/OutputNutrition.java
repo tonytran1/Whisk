@@ -204,7 +204,7 @@ public class OutputNutrition extends AppCompatActivity
 
         } else if (id == R.id.nav_preferences) {
 
-            Intent intent = new Intent(getApplicationContext(), Filter.class);
+            Intent intent = new Intent(getApplicationContext(), Preferences.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_save) {

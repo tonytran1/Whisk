@@ -36,12 +36,6 @@ public class Recipe extends AppCompatActivity
     ArrayList<String> ingredientText;
     ArrayList<String> nutrition;
     String recipeName = "";
-    SQLiteDatabase recipeDB;
-    String preference = "";
-    ArrayAdapter arrayAdapter;
-    String responseStr = "";
-    String recipeSource = "";
-    String recipeUrl = "";
 
 
     @Override
@@ -50,8 +44,7 @@ public class Recipe extends AppCompatActivity
         setContentView(R.layout.activity_recipe);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
-        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, ingredients VARCHAR)");
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +73,6 @@ public class Recipe extends AppCompatActivity
             ingredient = bundle.getStringArrayList("recipeIngredient");
             ingredientText = bundle.getStringArrayList("recipeIngredientText");
             nutrition = bundle.getStringArrayList("recipeNutrition");
-            recipeSource = bundle.getString("recipeSource");
-            recipeUrl = bundle.getString("recipeUrl");
 
 
         }
@@ -106,22 +97,7 @@ public class Recipe extends AppCompatActivity
         );
     }
 
-    public void saveFavorites(){
 
-        try {
-
-            Gson gson = new Gson();
-
-            String ingredients = gson.toJson(ingredientText);
-            String sql = "INSERT INTO favorites (ingredients) VALUES ('"+ingredients+"')";
-            recipeDB.execSQL(sql);
-            Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
-
-        }catch (Exception e) {
-
-            Toast.makeText(this, "Not able to save", Toast.LENGTH_LONG).show();
-        }
-    }
 
 
     @Override
@@ -178,8 +154,6 @@ public class Recipe extends AppCompatActivity
 
         } else if (id == R.id.nav_save) {
 
-            showAlert();
-
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -189,26 +163,6 @@ public class Recipe extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-
-    public void showAlert() {
-
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Save Recipe")
-                .setMessage("Do you want to save this recipe?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        saveFavorites();
-                        return;
-                    }
-                })
-                .setNegativeButton("No", null)
-                .show();
-
     }
 
 }

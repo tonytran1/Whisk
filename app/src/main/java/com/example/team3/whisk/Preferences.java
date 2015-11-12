@@ -30,14 +30,18 @@ public class Preferences extends AppCompatActivity
     ListView listView;
     ArrayList<String> food = new ArrayList<String>();
     ArrayList<String> foodText = new ArrayList<String>();
+    ArrayList<String> recipeName = new ArrayList<String>();
+    ArrayList<String> recipeURL = new ArrayList<String>();
     EdamamResponse responseObj;
     RecipeAdapter adapter;
-    String recipeName;
     Gson gson;
     ArrayAdapter arrayAdapter;
     String responseStr;
     SQLiteDatabase recipeDB;
     String search;
+    ArrayList<String> ingredient;
+    ArrayList<String> ingredientText;
+    ArrayList<String> nutrition;
 
 
 
@@ -51,6 +55,8 @@ public class Preferences extends AppCompatActivity
         setContentView(R.layout.activity_preferences);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        updateListView();
 
         /*listView = (ListView) findViewById(R.id.recipeList);
         gson = new Gson();
@@ -86,8 +92,8 @@ public class Preferences extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
             }
         });
 
@@ -102,7 +108,7 @@ public class Preferences extends AppCompatActivity
     }
 
 
-    public String updateListView() {
+    public void updateListView() {
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
 
@@ -117,19 +123,25 @@ public class Preferences extends AppCompatActivity
 
             Cursor c = recipeDB.rawQuery(selectQuery, null);
 
-            int preferenceIndex = c.getColumnIndex("preference");
+            int recipeIngredientTextIndex = c.getColumnIndex("recipeIngredientText");
+            int recipeIngredientIndex = c.getColumnIndex("recipeIngredient");
+            int recipeNameIndex = c.getColumnIndex("recipeName");
+            int recipeNutritionIndex = c.getColumnIndex("recipeNutrition");
+            int recipeURLIndex = c.getColumnIndex("recipeURL");
             int idIndex = c.getColumnIndex("id");
+
+            recipeName.clear();
+            recipeURL.clear();
             c.moveToFirst();
-            search = c.getString(preferenceIndex);
-            c.moveToNext();
-            int i = 0;
+
             while (c != null) {
-                search = search + "," + c.getString(preferenceIndex);
+
+                recipeName.add(c.getString(recipeNameIndex));
+                recipeURL.add(c.getString(recipeURLIndex));
                 c.moveToNext();
             }
             arrayAdapter.notifyDataSetChanged();
 
-            return responseStr;
 
 
         } catch (Exception e) {
@@ -137,7 +149,25 @@ public class Preferences extends AppCompatActivity
             e.printStackTrace();
 
         }
-        return null;
+
+
+        ListView listView = (ListView) findViewById(R.id.recipeList);
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipeName);
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //recipeId = arrayId[position];
+                Intent intent = new Intent(getApplicationContext(), UrLView.class);
+                intent.putExtra("recipeURL", recipeURL.get(position));
+                intent.putExtra("recipeName", recipeName.get(position));
+                //intent.putExtra("recipeId", recipeId);
+                startActivity(intent);
+
+            }
+        });
     }
 
 
@@ -180,13 +210,21 @@ public class Preferences extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_timer) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_preferences) {
+
+            Intent intent = new Intent(getApplicationContext(), Preferences.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_save) {
 
         } else if (id == R.id.nav_share) {
 

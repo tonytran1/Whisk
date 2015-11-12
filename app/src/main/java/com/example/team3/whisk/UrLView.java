@@ -1,6 +1,10 @@
 package com.example.team3.whisk;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -25,8 +33,12 @@ public class UrLView extends AppCompatActivity
     ArrayList<String> ingredient;
     ArrayList<String> ingredientText;
     ArrayList<String> nutrition;
-    String recipeName;
     String recipeURL;
+    String recipeName = "";
+    SQLiteDatabase recipeDB;
+    String preference = "";
+    ArrayList<String> url = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +46,9 @@ public class UrLView extends AppCompatActivity
         setContentView(R.layout.activity_ur_lview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +100,87 @@ public class UrLView extends AppCompatActivity
         startActivity(intent);
     }*/
 
+
+    public void saveFavorites(){
+
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+
+        String selectQuery = "SELECT * FROM favorites WHERE recipeURL = '"+recipeURL+"'";
+
+        try{
+            Cursor c = recipeDB.rawQuery(selectQuery, null);
+            int recipeURLIndex = c.getColumnIndex("recipeURL");
+            c.moveToFirst();
+            String savedURL = c.getString(recipeURLIndex);
+            //url.add(c.getString(recipeURLIndex));
+
+            if (savedURL != null) {
+                Toast.makeText(this, "Already Saved", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+
+
+        }catch (Exception e){
+
+            try {
+
+                Gson gson = new Gson();
+
+                String ingredientsText = "";
+                String ingredients = "";
+                String nutritions = "";
+                ingredients = gson.toJson(ingredient);
+                ingredientsText = gson.toJson(ingredientText);
+                nutritions = gson.toJson(nutrition);
+                if (nutritions != null){
+                    nutritions = "";
+                }
+                else if(ingredients != null){
+                    ingredients = "";
+                }
+                else if (ingredientsText != null){
+                    ingredientsText = "";
+                }
+
+                String sql = "INSERT INTO favorites (recipeIngredientText, recipeIngredient, recipeName, recipeNutrition, recipeURL) VALUES ('"+ingredientsText+"', '"+ingredients+"', '"+recipeName+"', '"+nutritions+"', '"+recipeURL+"')";
+                recipeDB.execSQL(sql);
+                Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
+
+            }catch (Exception ex) {
+
+                Toast.makeText(this, "Not able to save", Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+
+
+    }
+
+
+    public void showAlert() {
+
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Save Recipe")
+                .setMessage("Do you want to save this recipe?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        saveFavorites();
+                        return;
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+
+    }
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -134,10 +230,13 @@ public class UrLView extends AppCompatActivity
 
         } else if (id == R.id.nav_preferences) {
 
-            Intent intent = new Intent(getApplicationContext(), Filter.class);
+            Intent intent = new Intent(getApplicationContext(), Preferences.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_save) {
+
+
+            showAlert();
 
         } else if (id == R.id.nav_share) {
 
