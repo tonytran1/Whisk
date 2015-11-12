@@ -10,15 +10,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        ImageView splash = (ImageView) findViewById(R.id.splash);
+
+        splash.setTranslationX(-1000f);
+        splash.setTranslationY(-1000f);
+
+        splash.animate()
+                .translationXBy(1000f)
+                .translationYBy(1000f)
+                .rotationBy(1800)
+                .setDuration(3000);
 
         new Handler().postDelayed(new Runnable() {
 
