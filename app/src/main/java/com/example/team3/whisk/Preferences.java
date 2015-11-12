@@ -21,7 +21,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class Preferences extends AppCompatActivity
@@ -32,6 +34,9 @@ public class Preferences extends AppCompatActivity
     ArrayList<String> foodText = new ArrayList<String>();
     ArrayList<String> recipeName = new ArrayList<String>();
     ArrayList<String> recipeURL = new ArrayList<String>();
+    ArrayList<String> ingredient = new ArrayList<String>();
+    ArrayList<String> ingredientText = new ArrayList<String>();
+    ArrayList<String> nutrition = new ArrayList<String>();
     EdamamResponse responseObj;
     RecipeAdapter adapter;
     Gson gson;
@@ -39,9 +44,7 @@ public class Preferences extends AppCompatActivity
     String responseStr;
     SQLiteDatabase recipeDB;
     String search;
-    ArrayList<String> ingredient;
-    ArrayList<String> ingredientText;
-    ArrayList<String> nutrition;
+
 
 
 
@@ -132,12 +135,19 @@ public class Preferences extends AppCompatActivity
 
             recipeName.clear();
             recipeURL.clear();
+            ingredientText.clear();
+            ingredient.clear();
+            nutrition.clear();
             c.moveToFirst();
 
             while (c != null) {
 
                 recipeName.add(c.getString(recipeNameIndex));
                 recipeURL.add(c.getString(recipeURLIndex));
+                ingredientText.add(c.getString(recipeIngredientTextIndex));
+                ingredient.add(c.getString(recipeIngredientIndex));
+                nutrition.add(c.getString(recipeNutritionIndex));
+
                 c.moveToNext();
             }
             arrayAdapter.notifyDataSetChanged();
@@ -160,9 +170,19 @@ public class Preferences extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 //recipeId = arrayId[position];
+                Gson gson = new Gson();
+                Type type = new TypeToken<ArrayList<String>>() {}.getType();
+                ingredientText = gson.fromJson(ingredientText.get(position), type);
+                ingredient = gson.fromJson(ingredient.get(position), type);
+                nutrition = gson.fromJson(nutrition.get(position), type);
+
                 Intent intent = new Intent(getApplicationContext(), UrLView.class);
                 intent.putExtra("recipeURL", recipeURL.get(position));
                 intent.putExtra("recipeName", recipeName.get(position));
+                intent.putExtra("recipeIngredientText", ingredientText);
+                intent.putExtra("recipeIngredient", ingredient);
+                intent.putExtra("recipeNutrition", nutrition);
+
                 //intent.putExtra("recipeId", recipeId);
                 startActivity(intent);
 
