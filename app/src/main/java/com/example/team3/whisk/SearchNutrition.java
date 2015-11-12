@@ -105,7 +105,7 @@ public class SearchNutrition extends AppCompatActivity
 
     public String obtainURL(String food)
     {
-        url = "https://api.nutritionix.com/v1_1/search/"+food+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=16de0c54&appKey=e87e735d38bbcb5732adbd79dea587dc";
+        url = "https://api.nutritionix.com/v1_1/search/"+food+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=d310d646&appKey=bd677882f63f10d913d8e5447489e947";
         return url;
     }
 

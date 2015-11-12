@@ -87,7 +87,7 @@ public class OutputNutrition extends AppCompatActivity
 
 
     public String obtainURL(String itemID) {
-        url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=16de0c54&appKey=e87e735d38bbcb5732adbd79dea587dc";
+        url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=d310d646&appKey=bd677882f63f10d913d8e5447489e947";
         return url;
     }
 
