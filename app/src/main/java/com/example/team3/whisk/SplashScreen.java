@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 4000;
+    private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,8 @@ public class SplashScreen extends AppCompatActivity {
         splash.animate()
                 .translationXBy(1000f)
                 .translationYBy(1000f)
-                .rotationBy(1800)
-                .setDuration(3000);
+                .rotationBy(720)
+                .setDuration(2000);
 
         new Handler().postDelayed(new Runnable() {
 
