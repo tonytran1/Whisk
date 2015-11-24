@@ -55,8 +55,17 @@ public class RecipeAdapter extends BaseAdapter
         TextView title = (TextView) rowView.findViewById(R.id.title);
         title.setText(item.getRecipe().getLabel());
 
-        TextView ingredients = (TextView) rowView.findViewById(R.id.ingredients);
-        ingredients.setText(obtainNutrition(item.getRecipe()).toString());
+        String serv = "Servings: "+ (int) (item.getRecipe().getYield());
+        String cal = "Calories: " + (int) (item.getRecipe().getCalories()) / (int) (item.getRecipe().getYield());
+
+        TextView calories = (TextView) rowView.findViewById(R.id.calories);
+        calories.setText(cal);
+
+        TextView servings = (TextView) rowView.findViewById(R.id.servings);
+        servings.setText(serv);
+
+   /*     TextView ingredients = (TextView) rowView.findViewById(R.id.ingredients);
+        ingredients.setText(obtainNutrition(item.getRecipe()).toString());*/
         //ingredients.setText(item.getRecipe().getIngredientLines().toString());
 
         return rowView;

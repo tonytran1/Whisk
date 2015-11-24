@@ -3,6 +3,7 @@
     package="com.example.team3.whisk" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -93,7 +94,7 @@
                 android:value="com.example.team3.whisk.Home" />
         </activity>
         <activity
-            android:name=".UrLView"
+            android:name=".URLView"
             android:label="@string/title_activity_ur_lview"
             android:parentActivityName=".Filter"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -101,6 +102,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Filter" />
         </activity>
+        <activity
+            android:name=".IngredientNutritionView"
+            android:label="title_activity_ingredient_nutrition_view" >
+        </activity>
+        <activity
+            android:name=".SearchIngredient"
+            android:label="@string/title_activity_search_nutrition"
+            android:parentActivityName=".Recipe"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Recipe" />
+        </activity>
     </application>
-
 </manifest>

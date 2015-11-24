@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +30,8 @@ import cz.msebera.android.httpclient.Header;
 public class Filter extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    final private String appID = "e494d87e";
+    final private String apiKey = "b057bd4f328ed351264e6be95f68ecd1";
     String search;
     String recipeName;
     ListView listView;
@@ -56,14 +56,14 @@ public class Filter extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -107,7 +107,7 @@ public class Filter extends AppCompatActivity
                         new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                                Intent intent = new Intent(Filter.this, UrLView.class);
+                                Intent intent = new Intent(Filter.this, URLView.class);
                                 EdamamResponse.HitsEntity.RecipeEntity recipe = responseObj.getHits().get(position).getRecipe();
 
                                 String preference = gson.toJson(responseObj.getHits().get(position).getRecipe());
@@ -181,7 +181,7 @@ public class Filter extends AppCompatActivity
     }
 
     public String obtainURL(ArrayList<String> param, String search) {
-        String URL = "https://api.edamam.com/search?q=" + search + "&from=0&to=10&app_id=e494d87e&app_key=b057bd4f328ed351264e6be95f68ecd1";
+        String URL = "https://api.edamam.com/search?q=" + search + "&from=0&to=10&app_id=" + appID + "&app_key=" + apiKey;
 
         if (param != null){
 

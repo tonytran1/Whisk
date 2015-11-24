@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,26 +18,38 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.util.ArrayList;
 
-public class UrLView extends AppCompatActivity
+import cz.msebera.android.httpclient.Header;
+
+public class URLView extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    final private String appID = "6e46f388";
+    final private String apiKey = "2490703873e386d480943a68e2b6dcf9";
     WebView webView;
     ArrayList<String> ingredient;
     ArrayList<String> ingredientText;
     ArrayList<String> nutrition;
+    ArrayList<String> ingredientID = new ArrayList<String>();
+    ArrayList<String> ingredientName = new ArrayList<String>();
+    IngredientSearchResponse responseObj;
     String recipeURL;
-    String recipeName = "";
+    String recipeName;
+    String JSONURL;
+    int count = 0;
+    Gson gson;
+    AsyncHttpClient client;
+    IngredientSearchAdapter adapter;
     SQLiteDatabase recipeDB;
     String preference = "";
     ArrayList<String> url = new ArrayList<String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +66,45 @@ public class UrLView extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(UrLView.this, Recipe.class);
-                intent.putExtra("recipeIngredientText", ingredientText);
-                intent.putExtra("recipeIngredient", ingredient);
-                intent.putExtra("recipeName", recipeName);
-                intent.putExtra("recipeNutrition", nutrition);
-                startActivity(intent);
+                ingredientID.clear();
+                ingredientName.clear();
 
+                client = new AsyncHttpClient();
+
+                for (int i = 0; i < ingredient.size(); i++)
+                {
+                    client.get(URLView.this, obtainURL(ingredient.get(i)), new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            String responseStr = new String(responseBody);
+                            gson = new Gson();
+                            responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                            ingredientName.add(responseObj.getHits().get(0).getFields().getItem_name());
+                            ingredientID.add(responseObj.getHits().get(0).getFields().getItem_id());
+
+                            if (count == (ingredient.size() - 1) )
+                            {
+                                System.out.println("itemID = " + ingredientID.toString());
+                                Intent intent = new Intent(URLView.this, IngredientNutritionView.class);
+                                intent.putExtra("recipeIngredient", ingredient);
+                                intent.putExtra("recipeNutrition", nutrition);
+                                intent.putExtra("ingredientName", ingredientName);
+                                intent.putExtra("ingredientID", ingredientID);
+                                intent.putExtra("ingredientText", ingredientText);
+                                intent.putExtra("recipeURL", recipeURL);
+                                intent.putExtra("recipeName", recipeName);
+                                startActivity(intent);
+                            }
+                            count++;
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                            Toast toast = Toast.makeText(URLView.this, "Error, could not resolve URL", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    });
+                }
             }
         });
 
@@ -90,9 +133,16 @@ public class UrLView extends AppCompatActivity
         webView.loadUrl(recipeURL);
     }
 
+    public String obtainURL(String ingredient)
+    {
+        JSONURL = "https://api.nutritionix.com/v1_1/search/"+ingredient+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=" + appID + "&appKey=" + apiKey;
+        return JSONURL;
+    }
+
+
     /*public void onIngredientClick(View view)
     {
-        Intent intent = new Intent(UrLView.this, Recipe.class);
+        Intent intent = new Intent(URLView.this, Recipe.class);
         intent.putExtra("recipeIngredientText", ingredientText);
         intent.putExtra("recipeIngredient", ingredient);
         intent.putExtra("recipeName", recipeName);

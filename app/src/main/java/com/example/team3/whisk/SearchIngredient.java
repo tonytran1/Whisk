@@ -3,8 +3,6 @@ package com.example.team3.whisk;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -22,22 +22,23 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
-public class OutputNutrition extends AppCompatActivity
+public class SearchIngredient extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     final private String appID = "d310d646";
     final private String apiKey = "bd677882f63f10d913d8e5447489e947";
-    String itemID;
-    View view;
-    IngredientNutritionResponse responseObj;
+    String food;
+    ListView listView;
+    IngredientSearchResponse responseObj;
     String url;
+    IngredientSearchAdapter adapter;
     Gson gson;
     AsyncHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_output_nutrition);
+        setContentView(R.layout.activity_search_nutrition);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -61,101 +62,52 @@ public class OutputNutrition extends AppCompatActivity
 
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null) {
-            itemID = bundle.getString("itemID");
+        if (bundle != null)
+        {
+            food = bundle.getString("food");
         }
 
+        listView = (ListView) findViewById(R.id.food);
         client = new AsyncHttpClient();
 
-        client.get(OutputNutrition.this, obtainURL(itemID), new AsyncHttpResponseHandler() {
+        client.get(SearchIngredient.this, obtainURL(food), new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String responseStr = new String(responseBody);
                 gson = new Gson();
-                responseObj = gson.fromJson(responseStr, IngredientNutritionResponse.class);
-                /*adapter = new IngredientSearchAdapter(responseObj.getHits(), SearchNutrition.this);*/
-              /*  listView.setAdapter(adapter);*/
+                responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                adapter = new IngredientSearchAdapter(responseObj.getHits(), SearchIngredient.this);
+                listView.setAdapter(adapter);
                /* ListView foodSearch = (ListView) findViewById(R.id.);*/
-                setView(responseObj);
+
+                listView.setOnItemClickListener(
+                        new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
+                                Intent intent = new Intent(SearchIngredient.this, OutputNutrition.class);
+                                intent.putExtra("itemID", responseObj.getHits().get(position).getFields().getItem_id());
+                                ;
+                                startActivity(intent);
+                            }
+                        }
+                );
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Toast toast = Toast.makeText(OutputNutrition.this, "Error, could not resolve URL", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(SearchIngredient.this, "Error, could not resolve URL", Toast.LENGTH_LONG);
                 toast.show();
             }
         });
     }
 
 
-    public String obtainURL(String itemID) {
-        url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=" + appID + "&appKey=" + apiKey;
+
+    public String obtainURL(String food)
+    {
+        url = "https://api.nutritionix.com/v1_1/search/"+food+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=" + appID + "&appKey=" + apiKey;
         return url;
     }
-
-    public void setView(IngredientNutritionResponse responseObj) {
-        TextView title = (TextView) findViewById(R.id.NutritionTitle);
-        title.setText(responseObj.getItem_name());
-
-        IngredientNutritionResponse item = responseObj;
-
-        TextView fat = (TextView) findViewById(R.id.fat);
-        try {
-            fat.setText(item.getNf_total_fat() + "g");
-        } catch (NullPointerException e) {
-            fat.setText("N/A");
-        }
-
-        TextView sugar = (TextView) findViewById(R.id.sugar);
-        try {
-            sugar.setText(item.getNf_sugars() + "g");
-        } catch (NullPointerException e) {
-            sugar.setText("N/A");
-        }
-
-        TextView protein = (TextView) findViewById(R.id.protein);
-        try {
-            protein.setText(item.getNf_protein() + "g");
-        } catch (NullPointerException e) {
-            protein.setText("N/A");
-        }
-
-        TextView cholest = (TextView) findViewById(R.id.cholesterol);
-        try {
-            cholest.setText(item.getNf_cholesterol() + "mg");
-        } catch (NullPointerException e) {
-            cholest.setText("N/A");
-        }
-
-        TextView sodium = (TextView) findViewById(R.id.sodium);
-        try {
-            sodium.setText(item.getNf_sodium() + "mg");
-        } catch (NullPointerException e) {
-            sodium.setText("N/A");
-        }
-
-        TextView calcium = (TextView) findViewById(R.id.calcium);
-        try {
-            calcium.setText(item.getNf_calcium_dv() + "%");
-        } catch (NullPointerException e) {
-            calcium.setText("N/A");
-        }
-
-        TextView vitA = (TextView) findViewById(R.id.vitA);
-        try {
-            vitA.setText(item.getNf_vitamin_a_dv() + "%");
-        } catch (NullPointerException e) {
-            vitA.setText("N/A");
-        }
-
-        TextView vitC = (TextView) findViewById(R.id.vitC);
-        try {
-            vitC.setText(item.getNf_vitamin_c_dv() + "%");
-        } catch (NullPointerException e) {
-            vitC.setText("N/A");
-        }
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -170,7 +122,7 @@ public class OutputNutrition extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.output_nutrition, menu);
+        getMenuInflater().inflate(R.menu.search_nutrition, menu);
         return true;
     }
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Whisk.iml" filepath="$PROJECT_DIR$/Whisk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Develope.iml" filepath="$PROJECT_DIR$/Develope.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
