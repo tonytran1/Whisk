@@ -24,8 +24,7 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textSize="17sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/servings"
@@ -52,7 +51,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF"
         android:layout_alignBottom="@+id/thumbnail"
-        android:layout_alignRight="@+id/ingredients"
-        android:layout_alignEnd="@+id/ingredients" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
