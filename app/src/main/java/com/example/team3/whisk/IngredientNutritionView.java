@@ -62,7 +62,6 @@ public class IngredientNutritionView extends AppCompatActivity {
         setTitle(recipeName);
 
         client = new AsyncHttpClient();
-        System.out.println("Here "+ ingredientID.toString());
         for (int i = 0; i < ingredientID.size(); i++) {
             client.get(IngredientNutritionView.this, obtainURL(ingredientID.get(i)), new AsyncHttpResponseHandler() {
                 @Override

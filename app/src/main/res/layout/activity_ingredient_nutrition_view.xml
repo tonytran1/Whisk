@@ -3,12 +3,25 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.tony.filter.IngredientNutritionView">
+    tools:context="com.example.tony.filter.IngredientNutritionView"
+    android:background="@drawable/wbg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click on ingredient to search additional brands."
+        android:id="@+id/RecipeTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/table_border"
+        android:gravity="center"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/nutritionList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RecipeTitle" />
 
 </RelativeLayout>

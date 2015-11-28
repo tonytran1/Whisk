@@ -28,14 +28,6 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/ingredients"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toEndOf="@+id/thumbnail" />
-
-    <TextView
         android:id="@+id/servings"
         android:shadowColor="#FF8000"
         android:shadowDx="2"
