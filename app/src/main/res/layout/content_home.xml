@@ -17,20 +17,18 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Choose Allergens"
+        android:text="Allergen Options"
         android:id="@+id/allergens"
         android:textStyle="bold"
         android:layout_gravity="center|left"
         android:layout_below="@+id/search"
-        android:layout_alignParentStart="true"
-        />
+        android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -40,8 +38,7 @@
         android:checked="false"
         android:layout_below="@+id/allergens"
         android:layout_gravity="center|left"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -52,8 +49,7 @@
         android:layout_gravity="center|left"
         android:layout_alignTop="@+id/tnuts"
         android:layout_alignStart="@+id/fiber"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -64,8 +60,7 @@
         android:layout_gravity="center|left"
         android:onClick="selectItem"
         android:layout_alignTop="@+id/dairy"
-        android:layout_toEndOf="@+id/fiber"
-        />
+        android:layout_toEndOf="@+id/fiber" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -76,8 +71,7 @@
         android:layout_alignParentStart="true"
         android:checked="false"
         android:layout_gravity="center|left"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -88,8 +82,7 @@
         android:layout_below="@+id/dairy"
         android:layout_alignStart="@+id/dairy"
         android:layout_gravity="center|left"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
 
     <ImageButton
@@ -99,21 +92,23 @@
         android:id="@+id/button"
         android:onClick="onSubmit"
         android:background="@drawable/button_selector"
-        android:layout_below="@+id/paleo"
-        android:layout_toLeftOf="@+id/fat"
-        android:layout_toStartOf="@+id/fat" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_toEndOf="@+id/vegan"
+        android:layout_alignTop="@+id/paleo"
+        android:layout_toRightOf="@+id/vegan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Choose Diet"
+        android:text="Diet Options"
         android:id="@+id/diet"
         android:textStyle="bold"
         android:layout_below="@+id/eggs"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp"
-        />
+        android:layout_marginTop="23dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -123,8 +118,7 @@
         android:layout_below="@+id/diet"
         android:layout_alignStart="@+id/diet"
         android:checked="false"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -134,8 +128,7 @@
         android:checked="false"
         android:layout_alignTop="@+id/vegan"
         android:layout_alignStart="@+id/fiber"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -145,8 +138,7 @@
         android:checked="false"
         android:layout_alignTop="@+id/sodium"
         android:layout_centerHorizontal="true"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -156,8 +148,7 @@
         android:layout_below="@+id/sodium"
         android:layout_alignParentStart="true"
         android:checked="false"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -167,8 +158,7 @@
         android:checked="false"
         android:layout_alignTop="@+id/fiber"
         android:layout_toEndOf="@+id/fiber"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -178,8 +168,7 @@
         android:checked="false"
         android:layout_alignTop="@+id/carb"
         android:layout_toEndOf="@+id/fiber"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <EditText
         android:layout_width="300dp"
@@ -190,7 +179,7 @@
         android:layout_margin="16dp"
         android:layout_centerHorizontal="true"
         android:singleLine="true"
-        />
+        android:background="@drawable/table_border" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -200,8 +189,7 @@
         android:checked="false"
         android:layout_below="@+id/vegan"
         android:layout_alignParentStart="true"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -211,8 +199,7 @@
         android:layout_below="@+id/wheat"
         android:layout_alignStart="@+id/wheat"
         android:checked="false"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -222,7 +209,6 @@
         android:layout_below="@+id/soy"
         android:layout_alignParentStart="true"
         android:checked="false"
-        android:onClick="selectItem"
-        />
+        android:onClick="selectItem" />
 
 </RelativeLayout>

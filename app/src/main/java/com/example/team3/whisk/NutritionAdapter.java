@@ -44,7 +44,7 @@ public class NutritionAdapter extends BaseAdapter
     {
         LayoutInflater inflater = (LayoutInflater) rContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.activity_nutrition_output, parent, false);
+        View rowView = inflater.inflate(R.layout.content_output_nutrition, parent, false);
 
         IngredientNutritionResponse item = (IngredientNutritionResponse) getItem(position);
 
