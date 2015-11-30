@@ -61,53 +61,6 @@ public class URLView extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
         recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ingredientID.clear();
-                ingredientName.clear();
-
-                client = new AsyncHttpClient();
-
-                for (int i = 0; i < ingredient.size(); i++)
-                {
-                    client.get(URLView.this, obtainURL(ingredient.get(i)), new AsyncHttpResponseHandler() {
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                            String responseStr = new String(responseBody);
-                            gson = new Gson();
-                            responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
-                            ingredientName.add(responseObj.getHits().get(0).getFields().getItem_name());
-                            ingredientID.add(responseObj.getHits().get(0).getFields().getItem_id());
-
-                            if (count == (ingredient.size() - 1) )
-                            {
-                                System.out.println("itemID = " + ingredientID.toString());
-                                Intent intent = new Intent(URLView.this, IngredientNutritionView.class);
-                                intent.putExtra("recipeIngredient", ingredient);
-                                intent.putExtra("recipeNutrition", nutrition);
-                                intent.putExtra("ingredientName", ingredientName);
-                                intent.putExtra("ingredientID", ingredientID);
-                                intent.putExtra("ingredientText", ingredientText);
-                                intent.putExtra("recipeURL", recipeURL);
-                                intent.putExtra("recipeName", recipeName);
-                                startActivity(intent);
-                            }
-                            count++;
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                            Toast toast = Toast.makeText(URLView.this, "Error, could not resolve URL", Toast.LENGTH_LONG);
-                            toast.show();
-                        }
-                    });
-                }
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -150,6 +103,48 @@ public class URLView extends AppCompatActivity
         startActivity(intent);
     }*/
 
+    public void onNutritionClick(View view)
+    {
+        ingredientID.clear();
+        ingredientName.clear();
+
+        client = new AsyncHttpClient();
+
+        for (int i = 0; i < ingredient.size(); i++)
+        {
+            client.get(URLView.this, obtainURL(ingredient.get(i)), new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    String responseStr = new String(responseBody);
+                    gson = new Gson();
+                    responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                    ingredientName.add(responseObj.getHits().get(0).getFields().getItem_name());
+                    ingredientID.add(responseObj.getHits().get(0).getFields().getItem_id());
+
+                    if (count == (ingredient.size() - 1) )
+                    {
+                        System.out.println("itemID = " + ingredientID.toString());
+                        Intent intent = new Intent(URLView.this, IngredientNutritionView.class);
+                        intent.putExtra("recipeIngredient", ingredient);
+                        intent.putExtra("recipeNutrition", nutrition);
+                        intent.putExtra("ingredientName", ingredientName);
+                        intent.putExtra("ingredientID", ingredientID);
+                        intent.putExtra("ingredientText", ingredientText);
+                        intent.putExtra("recipeURL", recipeURL);
+                        intent.putExtra("recipeName", recipeName);
+                        startActivity(intent);
+                    }
+                    count++;
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    Toast toast = Toast.makeText(URLView.this, "Error, could not resolve URL", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            });
+        }
+    }
 
     public void saveFavorites(){
 

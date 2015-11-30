@@ -56,10 +56,10 @@ public class RecipeAdapter extends BaseAdapter
         title.setText(item.getRecipe().getLabel());
 
         String serv = "Servings: "+ (int) (item.getRecipe().getYield());
-        String cal = "Calories: " + (int) (item.getRecipe().getCalories()) / (int) (item.getRecipe().getYield());
+        int cal =  (int) (item.getRecipe().getCalories()/item.getRecipe().getYield());
 
         TextView calories = (TextView) rowView.findViewById(R.id.calories);
-        calories.setText(cal);
+        calories.setText("Calories: " + cal);
 
         TextView servings = (TextView) rowView.findViewById(R.id.servings);
         servings.setText(serv);

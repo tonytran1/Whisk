@@ -14,10 +14,10 @@
 
     <TextView
         android:id="@+id/title"
-        android:shadowColor="#FF8000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="10"
+        android:shadowColor="#0C0C0C"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -28,10 +28,10 @@
 
     <TextView
         android:id="@+id/servings"
-        android:shadowColor="#FF8000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="10"
+        android:shadowColor="#0C0C0C"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -39,13 +39,13 @@
         android:layout_alignBottom="@+id/thumbnail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
+                    <!--#FF8000-->
     <TextView
         android:id="@+id/calories"
-        android:shadowColor="#FF8000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="10"
+        android:shadowColor="#0C0C0C"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"

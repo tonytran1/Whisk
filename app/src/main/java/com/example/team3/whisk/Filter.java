@@ -56,15 +56,6 @@ public class Filter extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-            }
-        });*/
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -102,6 +93,11 @@ public class Filter extends AppCompatActivity
                 responseObj = gson.fromJson(responseStr, EdamamResponse.class);
                 adapter = new RecipeAdapter(responseObj.getHits(), Filter.this);
                 listView.setAdapter(adapter);
+
+                if (responseObj.getHits().size() == 0)
+                {
+                    Toast.makeText(Filter.this, "No Results! Press back and try again!", Toast.LENGTH_LONG).show();
+                }
 
                 listView.setOnItemClickListener(
                         new AdapterView.OnItemClickListener() {

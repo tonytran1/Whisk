@@ -1,27 +1,59 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="com.example.tony.filter.IngredientNutritionView"
     android:background="@drawable/wbg">
 
     <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Click on ingredient to search additional brands."
+        android:text="Click on ingredient to search additional brands"
         android:id="@+id/RecipeTitle"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/table_border"
         android:gravity="center"
         android:textStyle="bold" />
 
     <ListView
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
         android:id="@+id/nutritionList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="375dp"
         android:layout_below="@+id/RecipeTitle" />
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="10dp"
+        android:id="@+id/nutrition_button"
+        android:background="@drawable/nutrition_button_pressed"
+        android:layout_alignRight="@+id/nutritionList"
+        android:layout_alignEnd="@+id/nutritionList"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/recipe_button" />
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="10dp"
+        android:id="@+id/recipe_button"
+        android:background="@drawable/recipe_button"
+        android:layout_alignTop="@+id/shop_button"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/shop_button"
+        android:onClick="onRecipeClick" />
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="10dp"
+        android:id="@+id/shop_button"
+        android:background="@drawable/shop_button"
+        android:layout_alignLeft="@+id/nutritionList"
+        android:layout_alignStart="@+id/nutritionList"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/nutritionList" />
 
 </RelativeLayout>
