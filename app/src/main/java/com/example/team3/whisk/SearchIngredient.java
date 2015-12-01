@@ -130,6 +130,20 @@ public class SearchIngredient extends AppCompatActivity
             fat.setText("N/A");
         }
 
+        TextView fiber = (TextView) view.findViewById(R.id.fiber);
+        try {
+            fiber.setText(item.getNf_dietary_fiber() + "g");
+        } catch (NullPointerException e) {
+            fiber.setText("N/A");
+        }
+
+        TextView carb = (TextView) view.findViewById(R.id.carbs);
+        try {
+            carb.setText(item.getNf_total_carbohydrate() + "g");
+        } catch (NullPointerException e) {
+            carb.setText("N/A");
+        }
+
         TextView sugar = (TextView) view.findViewById(R.id.sugar);
         try {
             sugar.setText(item.getNf_sugars() + "g");
