@@ -175,6 +175,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/search"
         android:layout_below="@+id/textView"
+        android:hint="e.g. chicken, celery, carrot"
         android:padding="16dp"
         android:layout_margin="16dp"
         android:layout_centerHorizontal="true"

@@ -42,15 +42,6 @@ public class SearchIngredient extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -86,7 +77,6 @@ public class SearchIngredient extends AppCompatActivity
                             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                                 Intent intent = new Intent(SearchIngredient.this, OutputNutrition.class);
                                 intent.putExtra("itemID", responseObj.getHits().get(position).getFields().getItem_id());
-                                ;
                                 startActivity(intent);
                             }
                         }

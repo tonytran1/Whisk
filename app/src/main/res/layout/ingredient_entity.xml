@@ -12,6 +12,11 @@
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:background="@drawable/table_border"
         android:textSize="20sp" />
+
+    <include
+        layout="@layout/content_output_nutrition"
+        android:id="@+id/nutritionList" />
 
 </RelativeLayout>
