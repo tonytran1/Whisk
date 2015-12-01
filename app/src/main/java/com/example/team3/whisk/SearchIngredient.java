@@ -28,15 +28,15 @@ public class SearchIngredient extends AppCompatActivity
 
     final private String appID = "d310d646";
     final private String apiKey = "bd677882f63f10d913d8e5447489e947";
-    String food;
-    ListView listView;
-    IngredientSearchResponse responseObj;
-    IngredientNutritionResponse responseObjNutrition;
-    String url;
-    IngredientSearchAdapter adapter;
-    Gson gson;
-    AsyncHttpClient client;
-    String itemID;
+    private String food;
+    private ListView listView;
+    private IngredientSearchResponse responseObj;
+    private IngredientNutritionResponse responseObjNutrition;
+    private String url;
+    private IngredientSearchAdapter adapter;
+    private Gson gson;
+    private static AsyncHttpClient client;
+    private String itemID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

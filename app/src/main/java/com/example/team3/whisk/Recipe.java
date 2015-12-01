@@ -32,10 +32,10 @@ import java.util.ArrayList;
 public class Recipe extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ArrayList<String> ingredient;
-    ArrayList<String> ingredientText;
-    ArrayList<String> nutrition;
-    String recipeName = "";
+    private ArrayList<String> ingredient;
+    private ArrayList<String> ingredientText;
+    private ArrayList<String> nutrition;
+    private String recipeName = "";
 
 
     @Override

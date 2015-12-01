@@ -22,22 +22,22 @@ public class IngredientNutritionView extends AppCompatActivity {
 
     final private String appID = "d310d646";
     final private String apiKey = "bd677882f63f10d913d8e5447489e947";
-    ArrayList<String> ingredientName = new ArrayList<String>();
-    ArrayList<String> ingredientID = new ArrayList<String>();
-    ArrayList<String> recipeNutrition = new ArrayList<String>();
-    ArrayList<String> recipeIngredient = new ArrayList<String>();
-    ArrayList<String> ingredientText = new ArrayList<String>();
-    ArrayList<IngredientNutritionResponse> responseObj = new ArrayList<IngredientNutritionResponse>();
-    String url;
-    String ingredient;
-    String recipeName;
-    String recipeURL;
-    int count = 0;
-    View view;
-    ListView listView;
-    Gson gson;
-    AsyncHttpClient client;
-    NutritionAdapter adapter;
+    private ArrayList<String> ingredientName = new ArrayList<String>();
+    private ArrayList<String> ingredientID = new ArrayList<String>();
+    private ArrayList<String> recipeNutrition = new ArrayList<String>();
+    private ArrayList<String> recipeIngredient = new ArrayList<String>();
+    private ArrayList<String> ingredientText = new ArrayList<String>();
+    private ArrayList<IngredientNutritionResponse> responseObj = new ArrayList<IngredientNutritionResponse>();
+    private String url;
+    private String ingredient;
+    private String recipeName;
+    private String recipeURL;
+    private int count = 0;
+    private View view;
+    private ListView listView;
+    private Gson gson;
+    private static AsyncHttpClient client;
+    private NutritionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

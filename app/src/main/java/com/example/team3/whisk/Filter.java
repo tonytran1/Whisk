@@ -32,23 +32,23 @@ public class Filter extends AppCompatActivity
 
     final private String appID = "e494d87e";
     final private String apiKey = "b057bd4f328ed351264e6be95f68ecd1";
-    String search;
-    String recipeName;
-    ListView listView;
-    ArrayList<String> param = new ArrayList<>();
-    ArrayList<String> food = new ArrayList<String>();
-    ArrayList<String> foodText = new ArrayList<String>();
-    EdamamResponse responseObj;
-    String url;
-    RecipeAdapter adapter;
-    Gson gson;
-    AsyncHttpClient client;
-    ArrayAdapter arrayAdapter;
-    String responseStr;
-    SQLiteDatabase recipeDB;
-    String recipeSource = "";
-    String recipeUrl = "";
-    String recipeURL = "";
+    private String search;
+    private String recipeName;
+    private ListView listView;
+    private ArrayList<String> param = new ArrayList<>();
+    private ArrayList<String> food = new ArrayList<String>();
+    private ArrayList<String> foodText = new ArrayList<String>();
+    private EdamamResponse responseObj;
+    private String url;
+    private RecipeAdapter adapter;
+    private Gson gson;
+    private AsyncHttpClient client;
+    private ArrayAdapter arrayAdapter;
+    private String responseStr;
+    private SQLiteDatabase recipeDB;
+    private String recipeSource = "";
+    private String recipeUrl = "";
+    private String recipeURL = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    ArrayList<String> param = new ArrayList<String>();
+    private ArrayList<String> param = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +162,7 @@ public class Home extends AppCompatActivity
         }
     }
 
-    public String obtainSearch()
+    private String obtainSearch()
     {
         EditText editText = (EditText)findViewById(R.id.search);
 

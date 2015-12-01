@@ -27,12 +27,12 @@ public class OutputNutrition extends AppCompatActivity
 
     final private String appID = "d310d646";
     final private String apiKey = "bd677882f63f10d913d8e5447489e947";
-    String itemID;
-    View view;
-    IngredientNutritionResponse responseObj;
-    String url;
-    Gson gson;
-    AsyncHttpClient client;
+    private String itemID;
+    private View view;
+    private IngredientNutritionResponse responseObj;
+    private String url;
+    private Gson gson;
+    private static AsyncHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

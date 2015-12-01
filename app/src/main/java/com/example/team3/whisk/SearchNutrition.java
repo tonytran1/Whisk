@@ -27,13 +27,13 @@ public class SearchNutrition extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    String food;
-    ListView listView;
-    IngredientSearchResponse responseObj;
-    String url;
-    IngredientSearchAdapter adapter;
-    Gson gson;
-    AsyncHttpClient client;
+    private String food;
+    private ListView listView;
+    private IngredientSearchResponse responseObj;
+    private String url;
+    private IngredientSearchAdapter adapter;
+    private Gson gson;
+    private static AsyncHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
