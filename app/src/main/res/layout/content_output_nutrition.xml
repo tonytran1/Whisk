@@ -18,12 +18,36 @@
 
     <TableRow>
         <TextView
+            android:text="Protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1" />
+        <TextView
+            android:id="@+id/protein"
+            android:width="200px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+    <TableRow>
+        <TextView
             android:text="Fat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1" />
         <TextView
             android:id="@+id/fat"
+            android:width="200px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Carbohydrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1" />
+        <TextView
+            android:id="@+id/carbs"
             android:width="200px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -42,12 +66,12 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Protein"
+            android:text="Fiber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1" />
         <TextView
-            android:id="@+id/protein"
+            android:id="@+id/fiber"
             android:width="200px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,6 +43,10 @@ public class IngredientSearchAdapter extends BaseAdapter
         LayoutInflater inflater = (LayoutInflater) rContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.ingredient_entity, parent, false);
+
+        TableLayout hide = (TableLayout) rowView.findViewById(R.id.nutritionList);
+        hide.setVisibility(View.GONE);
+
         IngredientSearchResponse.HitsEntity item = (IngredientSearchResponse.HitsEntity) getItem(position);
 
         TextView ingredients = (TextView) rowView.findViewById(R.id.brandTitle);

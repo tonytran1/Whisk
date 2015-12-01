@@ -66,6 +66,20 @@ public class NutritionAdapter extends BaseAdapter
             sugar.setText("N/A");
         }
 
+        TextView carb = (TextView) rowView.findViewById(R.id.carbs);
+        try {
+            carb.setText(item.getNf_total_carbohydrate() + "g");
+        } catch (NullPointerException e) {
+            carb.setText("N/A");
+        }
+
+        TextView fiber = (TextView) rowView.findViewById(R.id.fiber);
+        try {
+            fiber.setText(item.getNf_dietary_fiber() + "g");
+        } catch (NullPointerException e) {
+            fiber.setText("N/A");
+        }
+
         TextView protein = (TextView) rowView.findViewById(R.id.protein);
         try {
             protein.setText(item.getNf_protein() + "g");

@@ -73,9 +73,6 @@ public class OutputNutrition extends AppCompatActivity
                 String responseStr = new String(responseBody);
                 gson = new Gson();
                 responseObj = gson.fromJson(responseStr, IngredientNutritionResponse.class);
-                /*adapter = new IngredientSearchAdapter(responseObj.getHits(), SearchNutrition.this);*/
-              /*  listView.setAdapter(adapter);*/
-               /* ListView foodSearch = (ListView) findViewById(R.id.);*/
                 setView(responseObj);
             }
 
@@ -111,6 +108,20 @@ public class OutputNutrition extends AppCompatActivity
             sugar.setText(item.getNf_sugars() + "g");
         } catch (NullPointerException e) {
             sugar.setText("N/A");
+        }
+
+        TextView fiber = (TextView) findViewById(R.id.fiber);
+        try {
+            fiber.setText(item.getNf_dietary_fiber() + "g");
+        } catch (NullPointerException e) {
+            fiber.setText("N/A");
+        }
+
+        TextView carb = (TextView) findViewById(R.id.carbs);
+        try {
+            carb.setText(item.getNf_total_carbohydrate() + "g");
+        } catch (NullPointerException e) {
+            carb.setText("N/A");
         }
 
         TextView protein = (TextView) findViewById(R.id.protein);
