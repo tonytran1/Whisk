@@ -9,9 +9,36 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_preferences" tools:context="com.example.team3.whisk.Preferences">
 
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click To View And Long Press To Delete"
+        android:id="@+id/RecipeTitle"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/table_border"
+        android:gravity="center"
+        android:textStyle="bold" />
+
     <ListView
         android:id="@+id/recipeList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RecipeTitle"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recipes Home"
+        android:id="@+id/button2"
+        android:onClick="home"
+        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/recipeList"
+        android:layout_centerHorizontal="true" />
+
+
 
 </RelativeLayout>

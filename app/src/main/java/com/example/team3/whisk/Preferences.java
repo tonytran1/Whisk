@@ -43,14 +43,6 @@ public class Preferences extends AppCompatActivity
     String responseStr;
     SQLiteDatabase recipeDB;
     String search;
-
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,46 +51,6 @@ public class Preferences extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateListView();
-
-        /*listView = (ListView) findViewById(R.id.recipeList);
-        gson = new Gson();
-        updateListView();
-        responseObj = gson.fromJson(responseStr, EdamamResponse.class);
-        adapter = new RecipeAdapter(responseObj.getHits(), Preferences.this);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                        Intent intent = new Intent(Preferences.this, Recipe.class);
-                        EdamamResponse.HitsEntity.RecipeEntity recipe = responseObj.getHits().get(position).getRecipe();
-                        foodText.clear();
-                        for (int i = 0; i < recipe.getIngredients().size(); i++) {
-                            food.add((String) recipe.getIngredients().get(i).getFood());
-                        }
-                        for (int i = 0; i < recipe.getIngredients().size(); i++) {
-                            foodText.add((String) recipe.getIngredients().get(i).getText());
-                        }
-                        recipeName = recipe.getLabel();
-                        intent.putExtra("recipeIngredientText", foodText);
-                        intent.putExtra("recipeIngredient", food);
-                        intent.putExtra("recipeName", recipeName);
-                        //intent.putExtra("recipeNutrition", obtainNutrition(recipe));
-                        startActivity(intent);
-                    }
-                }
-        );*/
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -115,16 +67,15 @@ public class Preferences extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
 
         String selectQuery = "SELECT * FROM favorites";
-
         try {
-            if (recipeDB.equals(null)){
-
-                Toast.makeText(this, "Database empty", Toast.LENGTH_LONG).show();
-
-            }
 
             Cursor c = recipeDB.rawQuery(selectQuery, null);
+            if (c == null){
 
+                Toast.makeText(Preferences.this, "No Results! Press back and save some Recipes!", Toast.LENGTH_LONG).show();
+                return;
+
+            }
             int recipeIngredientTextIndex = c.getColumnIndex("recipeIngredientText");
             int recipeIngredientIndex = c.getColumnIndex("recipeIngredient");
             int recipeNameIndex = c.getColumnIndex("recipeName");
@@ -155,8 +106,7 @@ public class Preferences extends AppCompatActivity
 
         } catch (Exception e) {
 
-            e.printStackTrace();
-
+            Toast.makeText(Preferences.this, "No Results! Press back and Save some Recipes!", Toast.LENGTH_LONG).show();
         }
 
 
@@ -170,7 +120,8 @@ public class Preferences extends AppCompatActivity
 
                 //recipeId = arrayId[position];
                 Gson gson = new Gson();
-                Type type = new TypeToken<ArrayList<String>>() {}.getType();
+                Type type = new TypeToken<ArrayList<String>>() {
+                }.getType();
                 ingredientText = gson.fromJson(ingredientText.get(position), type);
                 ingredient = gson.fromJson(ingredient.get(position), type);
                 nutrition = gson.fromJson(nutrition.get(position), type);
@@ -189,6 +140,11 @@ public class Preferences extends AppCompatActivity
         });
     }
 
+
+    public void home(View view){
+        Intent intent = new Intent(getApplicationContext(), Home.class);
+        startActivity(intent);
+    }
 
 
     @Override

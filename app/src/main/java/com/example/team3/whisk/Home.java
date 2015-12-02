@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -18,16 +20,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private ArrayList<String> param = new ArrayList<String>();
+    ArrayList<String> param = new ArrayList<String>();
+    private MultiSelectionSpinner multiSelectionSpinner;
+    private EditText editText;
+    List<String> ingredientList = new ArrayList<>();
+    boolean checked;
+    SQLiteDatabase recipeDB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +69,15 @@ public class Home extends AppCompatActivity
             alertDialog.setCanceledOnTouchOutside(false);
             alertDialog.show();
         }
-
+        editText = (EditText) findViewById(R.id.searchText);
+        selectIngredients();
+        multiSelectionSpinner = (MultiSelectionSpinner) findViewById(R.id.search);
+        if (ingredientList.size() != 0) {
+            multiSelectionSpinner.setItems(ingredientList);
+        }
+        multiSelectionSpinner.setVisibility(View.GONE);
+        editText.setVisibility(View.VISIBLE);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -66,6 +88,48 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void selectIngredients(){
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
+        String selectQuery = "SELECT * FROM ingredients";
+        Cursor c = recipeDB.rawQuery(selectQuery, null);
+
+        int ingredientNameIndex = c.getColumnIndex("ingredientName");
+        ingredientList.clear();
+        c.moveToFirst();
+        int i = c.getCount();
+
+        for (int j=0; j<i; j++){
+
+            ingredientList.add(c.getString(ingredientNameIndex));
+            c.moveToNext();
+
+        }
+    }
+
+    public void viewChange(View view){
+
+        checked = ((CheckBox) view).isChecked();
+        if (checked) {
+            selectIngredients();
+            if (ingredientList.size() != 0) {
+                multiSelectionSpinner.setItems(ingredientList);
+            }
+            else {
+                Toast.makeText(this, "First Enter The Ingredients In The List", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+                startActivity(intent);
+            }
+            multiSelectionSpinner.setVisibility(View.VISIBLE);
+            editText.setVisibility(View.GONE);
+        }
+        else{
+            multiSelectionSpinner.setVisibility(View.GONE);
+            editText.setVisibility(View.VISIBLE);
+        }
+
+    }
 
     public void selectItem(View view)
     {
@@ -162,11 +226,19 @@ public class Home extends AppCompatActivity
         }
     }
 
-    private String obtainSearch()
+    public String obtainSearch()
     {
-        EditText editText = (EditText)findViewById(R.id.search);
+        if (checked) {
+            return multiSelectionSpinner.getSelectedItemsAsString();
 
-        return editText.getText().toString();
+        }
+        else{
+            EditText editText = (EditText)findViewById(R.id.searchText);
+
+            return editText.getText().toString();
+
+        }
+
     }
 
     public void onSubmit(View view)
@@ -230,8 +302,9 @@ public class Home extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), Preferences.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_save) {
-
+        } else if (id == R.id.nav_ingredients) {
+            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

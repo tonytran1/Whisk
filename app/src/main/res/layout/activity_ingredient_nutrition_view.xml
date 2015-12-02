@@ -27,8 +27,8 @@
         android:layout_below="@+id/RecipeTitle" />
 
     <ImageButton
-        android:layout_width="120dp"
-        android:layout_height="10dp"
+        android:layout_width="100dp"
+        android:layout_height="7dp"
         android:id="@+id/nutrition_button"
         android:background="@drawable/nutrition_button_pressed"
         android:layout_alignRight="@+id/nutritionList"
@@ -37,8 +37,8 @@
         android:layout_alignTop="@+id/recipe_button" />
 
     <ImageButton
-        android:layout_width="120dp"
-        android:layout_height="10dp"
+        android:layout_width="100dp"
+        android:layout_height="7dp"
         android:id="@+id/recipe_button"
         android:background="@drawable/recipe_button"
         android:layout_alignTop="@+id/shop_button"
@@ -47,8 +47,8 @@
         android:onClick="onRecipeClick" />
 
     <ImageButton
-        android:layout_width="120dp"
-        android:layout_height="10dp"
+        android:layout_width="100dp"
+        android:layout_height="7dp"
         android:id="@+id/shop_button"
         android:background="@drawable/shop_button"
         android:layout_alignLeft="@+id/nutritionList"

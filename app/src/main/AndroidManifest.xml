@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.team3.whisk" >
+    package="com.example.team3.whisk">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +26,7 @@
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:parentActivityName=".SplashScreen"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.SplashScreen" />
@@ -35,7 +35,7 @@
             android:name=".Filter"
             android:label="@string/title_activity_filter"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
@@ -44,7 +44,7 @@
             android:name=".Recipe"
             android:label="@string/title_activity_recipe"
             android:parentActivityName=".Filter"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Filter" />
@@ -53,7 +53,7 @@
             android:name=".SearchNutrition"
             android:label="@string/title_activity_search_nutrition"
             android:parentActivityName=".Recipe"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Recipe" />
@@ -62,7 +62,7 @@
             android:name=".OutputNutrition"
             android:label="@string/title_activity_output_nutrition"
             android:parentActivityName=".SearchNutrition"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.SearchNutrition" />
@@ -71,7 +71,7 @@
             android:name=".Timer"
             android:label="@string/title_activity_timer"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
@@ -80,7 +80,7 @@
             android:name=".TimerDennis"
             android:label="@string/title_activity_timer_dennis"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
@@ -89,7 +89,7 @@
             android:name=".Preferences"
             android:label="@string/title_activity_preferences"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
@@ -98,23 +98,32 @@
             android:name=".URLView"
             android:label="@string/title_activity_ur_lview"
             android:parentActivityName=".Filter"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Filter" />
         </activity>
         <activity
             android:name=".IngredientNutritionView"
-            android:label="title_activity_ingredient_nutrition_view" >
-        </activity>
+            android:label="title_activity_ingredient_nutrition_view"></activity>
         <activity
             android:name=".SearchIngredient"
             android:label="@string/title_activity_search_nutrition"
             android:parentActivityName=".Recipe"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Recipe" />
         </activity>
+        <activity
+            android:name=".IngredientsList"
+            android:label="@string/title_activity_ingredients_list"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.Home" />
+        </activity>
     </application>
+
 </manifest>
