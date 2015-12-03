@@ -1,5 +1,7 @@
 package com.example.team3.whisk;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -43,6 +45,7 @@ public class Preferences extends AppCompatActivity
     String responseStr;
     SQLiteDatabase recipeDB;
     String search;
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,7 @@ public class Preferences extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateListView();
+        deleteListView();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -67,13 +71,13 @@ public class Preferences extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
 
         String selectQuery = "SELECT * FROM favorites";
+        String count = "SELECT count(*) FROM favorites";
         try {
 
             Cursor c = recipeDB.rawQuery(selectQuery, null);
-            if (c == null){
+            if (c.getCount() == 0){
 
                 Toast.makeText(Preferences.this, "No Results! Press back and save some Recipes!", Toast.LENGTH_LONG).show();
-                return;
 
             }
             int recipeIngredientTextIndex = c.getColumnIndex("recipeIngredientText");
@@ -106,7 +110,6 @@ public class Preferences extends AppCompatActivity
 
         } catch (Exception e) {
 
-            Toast.makeText(Preferences.this, "No Results! Press back and Save some Recipes!", Toast.LENGTH_LONG).show();
         }
 
 
@@ -138,6 +141,53 @@ public class Preferences extends AppCompatActivity
 
             }
         });
+    }
+
+    public void deleteListView() {
+
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+
+        String selectQuery = "SELECT * FROM favorites";
+        ListView listView = (ListView) findViewById(R.id.recipeList);
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipeName);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                url = recipeURL.get(position);
+                showAlert();
+                return true;
+            }
+        });
+    }
+
+
+
+    public void showAlert() {
+
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Delete Recipe")
+                .setMessage("Do you want to delete this recipe?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteFavorites();
+                        updateListView();
+                        return;
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+
+    }
+
+    public void deleteFavorites(){
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+        String sql = "DELETE FROM favorites WHERE recipeURL = '"+url+"'";
+        recipeDB.execSQL(sql);
+        Toast.makeText(this, "Recipe Deleted", Toast.LENGTH_LONG).show();
     }
 
 
