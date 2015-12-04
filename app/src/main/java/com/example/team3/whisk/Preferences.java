@@ -76,7 +76,6 @@ public class Preferences extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
 
         String selectQuery = "SELECT * FROM favorites";
-        String count = "SELECT count(*) FROM favorites";
         try {
 
             Cursor c = recipeDB.rawQuery(selectQuery, null);
@@ -114,7 +113,7 @@ public class Preferences extends AppCompatActivity
 
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
 

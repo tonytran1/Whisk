@@ -50,6 +50,9 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         new Eula(this).show();
+        recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
 
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
@@ -91,7 +94,6 @@ public class Home extends AppCompatActivity
     public void selectIngredients(){
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
-        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
         String selectQuery = "SELECT * FROM ingredients";
         Cursor c = recipeDB.rawQuery(selectQuery, null);
 
