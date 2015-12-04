@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -46,13 +47,17 @@ public class Preferences extends AppCompatActivity
     SQLiteDatabase recipeDB;
     String search;
     String url;
+    TextView tittle;
+    TextView message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        tittle = (TextView) findViewById(R.id.RecipeTitle);
+        message = (TextView) findViewById(R.id.blankRecipeTitle);
+        message.setVisibility(View.GONE);
         updateListView();
         deleteListView();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -76,9 +81,9 @@ public class Preferences extends AppCompatActivity
 
             Cursor c = recipeDB.rawQuery(selectQuery, null);
             if (c.getCount() == 0){
-
+                tittle.setVisibility(View.GONE);
+                message.setVisibility(View.VISIBLE);
                 Toast.makeText(Preferences.this, "No Results! Press back and save some Recipes!", Toast.LENGTH_LONG).show();
-
             }
             int recipeIngredientTextIndex = c.getColumnIndex("recipeIngredientText");
             int recipeIngredientIndex = c.getColumnIndex("recipeIngredient");
@@ -174,7 +179,6 @@ public class Preferences extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteFavorites();
-                        updateListView();
                         return;
                     }
                 })
@@ -187,6 +191,7 @@ public class Preferences extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
         String sql = "DELETE FROM favorites WHERE recipeURL = '"+url+"'";
         recipeDB.execSQL(sql);
+        updateListView();
         Toast.makeText(this, "Recipe Deleted", Toast.LENGTH_LONG).show();
     }
 

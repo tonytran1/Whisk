@@ -45,6 +45,8 @@ public class IngredientsList extends AppCompatActivity
     String[] array = new String[20];
     ArrayList<String> ingredientList = new ArrayList<String>();
     TextView textView;
+    TextView savetittle;
+    TextView message;
 
 
     @Override
@@ -57,9 +59,13 @@ public class IngredientsList extends AppCompatActivity
         ingredientsList = (ListView)findViewById(R.id.ingredientList);
         addButton = (Button)findViewById(R.id.addButton);
         saveButton = (Button)findViewById(R.id.saveButton);
-        textView = (TextView)findViewById(R.id.RecipeTitle);
+        textView = (TextView)findViewById(R.id.ingredientTitle);
+        savetittle = (TextView)findViewById(R.id.saveIngredientTittle);
+        message = (TextView)findViewById(R.id.blankIngredientTittle);
         ingredientName.setVisibility(View.GONE);
         saveButton.setVisibility(View.GONE);
+        savetittle.setVisibility(View.GONE);
+        message.setVisibility(View.GONE);
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
         recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
         updateListView();
@@ -82,6 +88,7 @@ public class IngredientsList extends AppCompatActivity
         ingredientsList.setVisibility(View.GONE);
         addButton.setVisibility(View.GONE);
         textView.setVisibility(View.GONE);
+        savetittle.setVisibility(View.VISIBLE);
         saveButton.setVisibility(View.VISIBLE);
         ingredientName.setVisibility(View.VISIBLE);
 
@@ -125,6 +132,8 @@ public class IngredientsList extends AppCompatActivity
                 Toast.makeText(this, "Ingredient Saved", Toast.LENGTH_LONG).show();
                 ingredientName.setVisibility(View.GONE);
                 saveButton.setVisibility(View.GONE);
+                message.setVisibility(View.GONE);
+                savetittle.setVisibility(View.GONE);
                 ingredientsList.setVisibility(View.VISIBLE);
                 addButton.setVisibility(View.VISIBLE);
                 textView.setVisibility(View.VISIBLE);
@@ -146,14 +155,12 @@ public class IngredientsList extends AppCompatActivity
         String selectQuery = "SELECT * FROM ingredients";
 
         try {
-            if (recipeDB.equals(null)){
-
-                Toast.makeText(this, "Database empty", Toast.LENGTH_LONG).show();
-
-            }
-
             Cursor c = recipeDB.rawQuery(selectQuery, null);
-
+            if (c.getCount() == 0){
+                textView.setVisibility(View.GONE);
+                message.setVisibility(View.VISIBLE);
+                Toast.makeText(IngredientsList.this, "Save some Ingredients!", Toast.LENGTH_LONG).show();
+            }
             int ingredientNameIndex = c.getColumnIndex("ingredientName");
 
             ingredientList.clear();

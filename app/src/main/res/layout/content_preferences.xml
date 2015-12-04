@@ -22,6 +22,19 @@
         android:gravity="center"
         android:textStyle="bold" />
 
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Do Not Have Any Saved Recipe"
+        android:id="@+id/blankRecipeTitle"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/table_border"
+        android:gravity="center"
+        android:textStyle="bold" />
+
     <ListView
         android:id="@+id/recipeList"
         android:layout_width="match_parent"

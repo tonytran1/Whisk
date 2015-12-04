@@ -19,8 +19,35 @@
         android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Long Press On Ingredient To Delete"
-        android:id="@+id/RecipeTitle"
+        android:id="@+id/ingredientTitle"
         android:layout_alignParentTop="true"
+        android:background="@drawable/table_border"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ingredient List Is Empty"
+        android:id="@+id/blankIngredientTittle"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/table_border"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textStyle="bold" />
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter Ingredient To Save"
+        android:id="@+id/saveIngredientTittle"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:background="@drawable/table_border"
         android:gravity="center"
         android:textStyle="bold" />
@@ -29,21 +56,18 @@
         android:id="@+id/ingredientList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/RecipeTitle"/>
+        android:layout_below="@+id/ingredientTitle"/>
 
     <EditText
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="112dp"
         android:layout_width="300dp"
         android:padding="16dp"
-        android:layout_margin="16dp"
         android:singleLine="true"
         android:hint="Enter Ingredient eg. Chicken"
-        android:layout_below="@+id/textView"
-        android:background="@drawable/table_border"/>
+        android:background="@drawable/table_border"
+        android:layout_below="@+id/saveIngredientTittle"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
