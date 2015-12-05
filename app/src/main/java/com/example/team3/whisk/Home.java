@@ -25,6 +25,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
@@ -41,6 +42,8 @@ public class Home extends AppCompatActivity
     List<String> ingredientList = new ArrayList<>();
     boolean checked;
     SQLiteDatabase recipeDB;
+    TextView listText;
+    TextView textView;
 
 
     @Override
@@ -53,7 +56,8 @@ public class Home extends AppCompatActivity
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
         recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
         recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
-
+        listText = (TextView) findViewById(R.id.listText);
+        textView = (TextView) findViewById(R.id.textView);
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
@@ -79,7 +83,7 @@ public class Home extends AppCompatActivity
             multiSelectionSpinner.setItems(ingredientList);
         }
         multiSelectionSpinner.setVisibility(View.GONE);
-        editText.setVisibility(View.VISIBLE);
+        listText.setVisibility(View.GONE);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -114,6 +118,10 @@ public class Home extends AppCompatActivity
 
         checked = ((CheckBox) view).isChecked();
         if (checked) {
+            editText.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
+            listText.setVisibility(View.VISIBLE);
+            multiSelectionSpinner.setVisibility(View.VISIBLE);
             selectIngredients();
             if (ingredientList.size() != 0) {
                 multiSelectionSpinner.setItems(ingredientList);
@@ -123,12 +131,12 @@ public class Home extends AppCompatActivity
                 Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
                 startActivity(intent);
             }
-            multiSelectionSpinner.setVisibility(View.VISIBLE);
-            editText.setVisibility(View.GONE);
         }
         else{
-            multiSelectionSpinner.setVisibility(View.GONE);
+            listText.setVisibility(View.GONE);
             editText.setVisibility(View.VISIBLE);
+            textView.setVisibility(View.VISIBLE);
+            multiSelectionSpinner.setVisibility(View.GONE);
         }
 
     }

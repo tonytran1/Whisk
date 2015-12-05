@@ -22,6 +22,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click Below To See List"
+        android:id="@+id/listText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Allergen Options"
         android:id="@+id/allergens"
@@ -198,7 +208,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/search"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/listText"
         android:padding="16dp"
         android:layout_margin="16dp"
         android:layout_centerHorizontal="true"
