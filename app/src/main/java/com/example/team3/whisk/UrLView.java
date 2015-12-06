@@ -39,6 +39,7 @@ public class URLView extends AppCompatActivity
     private ArrayList<String> nutrition;
     private ArrayList<String> ingredientID = new ArrayList<String>();
     private ArrayList<String> ingredientName = new ArrayList<String>();
+    private ArrayList<String> food = new ArrayList<String>();
     private IngredientSearchResponse responseObj;
     private String recipeURL;
     private String recipeName;
@@ -71,6 +72,7 @@ public class URLView extends AppCompatActivity
         Bundle bundle = getIntent().getExtras();
         if (bundle != null)
         {
+            food = bundle.getStringArrayList("foodList");
             recipeName = bundle.getString("recipeName");
             ingredient = bundle.getStringArrayList("recipeIngredient");
             ingredientText = bundle.getStringArrayList("recipeIngredientText");
@@ -125,6 +127,7 @@ public class URLView extends AppCompatActivity
                         System.out.println("itemID = " + ingredientID.toString());
                         Intent intent = new Intent(URLView.this, IngredientNutritionView.class);
                         intent.putExtra("recipeIngredient", ingredient);
+                        intent.putStringArrayListExtra("foodList", food);
                         intent.putExtra("recipeNutrition", nutrition);
                         intent.putExtra("ingredientName", ingredientName);
                         intent.putExtra("ingredientID", ingredientID);
@@ -143,6 +146,14 @@ public class URLView extends AppCompatActivity
                 }
             });
         }
+    }
+
+    public void onMapsClick(View view)
+    {
+        // CHANGE THIS TO ProductActivity.class
+        Intent intent = new Intent(URLView.this, ItemActivity.class);
+        intent.putStringArrayListExtra("foodList", food);
+        startActivity(intent);
     }
 
     public void saveFavorites(){

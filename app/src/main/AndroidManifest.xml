@@ -96,7 +96,7 @@
         </activity>
         <activity
             android:name=".IngredientNutritionView"
-            android:label="title_activity_ingredient_nutrition_view"></activity>
+            android:label="title_activity_ingredient_nutrition_view" />
         <activity
             android:name=".SearchIngredient"
             android:label="@string/title_activity_search_nutrition"
@@ -114,6 +114,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
+        </activity>
+        <activity
+            android:name=".ItemActivity"
+            android:label="@string/title_activity_item"
+            android:parentActivityName=".URLView"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.URLView" />
         </activity>
     </application>
 

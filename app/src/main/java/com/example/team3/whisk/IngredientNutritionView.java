@@ -27,6 +27,7 @@ public class IngredientNutritionView extends AppCompatActivity {
     private ArrayList<String> recipeNutrition = new ArrayList<String>();
     private ArrayList<String> recipeIngredient = new ArrayList<String>();
     private ArrayList<String> ingredientText = new ArrayList<String>();
+    private ArrayList<String> food = new ArrayList<String>();
     private ArrayList<IngredientNutritionResponse> responseObj = new ArrayList<IngredientNutritionResponse>();
     private String url;
     private String ingredient;
@@ -51,6 +52,7 @@ public class IngredientNutritionView extends AppCompatActivity {
         if (bundle != null)
         {
             ingredientName = bundle.getStringArrayList("ingredientName");
+            food = bundle.getStringArrayList("foodList");
             ingredientID = bundle.getStringArrayList("ingredientID");
             recipeNutrition = bundle.getStringArrayList("recipeNutrition");
             recipeIngredient = bundle.getStringArrayList("recipeIngredient");
@@ -136,12 +138,21 @@ public class IngredientNutritionView extends AppCompatActivity {
         intent.putExtra("ingredientText", ingredientText);
         intent.putExtra("recipeName", recipeName);
         intent.putExtra("recipeURL", recipeURL);
+        intent.putExtra("foodList", food);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
     public void onRecipeClick(View view)
     {
-        onBackPressed();
+        Intent intent = new Intent(IngredientNutritionView.this, URLView.class);
+        intent.putExtra("recipeIngredient", recipeIngredient);
+        intent.putExtra("recipeNutrition", recipeNutrition);
+        intent.putExtra("ingredientText", ingredientText);
+        intent.putExtra("recipeName", recipeName);
+        intent.putExtra("recipeURL", recipeURL);
+        intent.putExtra("foodList", food);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

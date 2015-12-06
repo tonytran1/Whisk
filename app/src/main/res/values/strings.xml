@@ -58,5 +58,6 @@
     <string name="title_activity_url_view">UrlView</string>
     <string name="title_activity_ur_lview">Recipe</string>
     <string name="title_activity_ingredients_list">Ingredients List</string>
+    <string name="title_activity_item">ItemActivity</string>
 
 </resources>

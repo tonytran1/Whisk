@@ -42,7 +42,8 @@
         android:layout_alignLeft="@+id/webview"
         android:layout_alignStart="@+id/webview"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/webview" />
+        android:layout_below="@+id/webview"
+        android:onClick="onMapsClick"/>
 
 
 </RelativeLayout>

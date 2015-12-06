@@ -121,6 +121,7 @@ public class Filter extends AppCompatActivity
                                 recipeURL = recipe.getUrl();
                                 intent.putExtra("recipeIngredientText", foodText);
                                 intent.putExtra("recipeIngredient", food);
+                                intent.putExtra("foodList", food);
                                 intent.putExtra("recipeName", recipeName);
                                 intent.putExtra("recipeSource", recipeSource);
                                 intent.putExtra("recipeUrl", recipeUrl);
