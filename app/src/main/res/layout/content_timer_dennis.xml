@@ -10,94 +10,140 @@
     tools:showIn="@layout/app_bar_timer_dennis" tools:context="com.example.team3.whisk.TimerDennis">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:textSize="60dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/time_text"
         android:id="@+id/timeText"
+        android:gravity="center"
+        android:layout_marginTop="108dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="@string/button_begin"
-        android:id="@+id/buttonOne"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/start"/>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="@string/resetString"
-        android:id="@+id/buttonTwo"
-        android:layout_alignBottom="@+id/buttonOne"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="47dp"
-        android:layout_marginEnd="47dp"
-        android:background="@drawable/reset"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mintext"
-        android:maxLength="2"
-        android:hint="@string/minuteString"
-        android:layout_alignBottom="@+id/timeText"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <NumberPicker
+        android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:id="@+id/hrtext"
-        android:maxLength="2"
-        android:hint="@string/hourString"
-        android:layout_alignTop="@+id/mintext"
-        android:layout_toLeftOf="@+id/timeText"
-        android:layout_toStartOf="@+id/timeText" />
+        android:id="@+id/numberPickerHR"
+        android:layout_alignTop="@+id/timeText"
+        android:layout_alignLeft="@+id/timeText"
+        android:layout_alignStart="@+id/timeText"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp" />
 
-    <EditText
+    <NumberPicker
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPickerMIN"
+        android:layout_alignTop="@+id/timeText"
+        android:layout_toRightOf="@+id/numberPickerHR"
+        android:layout_toEndOf="@+id/numberPickerHR" />
+
+    <NumberPicker
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPickerSEC"
+        android:layout_alignTop="@+id/timeText"
+        android:layout_toRightOf="@+id/numberPickerMIN"
+        android:layout_toEndOf="@+id/numberPickerMIN" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/stringHr"
+        android:textSize="17dp"
+        android:id="@+id/hourstext"
+        android:layout_alignBottom="@+id/timeText"
+        android:layout_alignRight="@+id/numberPickerHR"
+        android:layout_alignEnd="@+id/numberPickerHR"
+        android:layout_marginBottom="47dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/stringMin"
+        android:textSize="17dp"
+        android:id="@+id/mintext"
+        android:layout_alignTop="@+id/hourstext"
+        android:layout_alignLeft="@+id/numberPickerMIN"
+        android:layout_alignStart="@+id/numberPickerMIN"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/stringSec"
+        android:textSize="17dp"
         android:id="@+id/sectext"
-        android:maxLength="2"
-        android:hint="@string/secondString"
         android:layout_alignTop="@+id/mintext"
-        android:layout_toRightOf="@+id/timeText"
-        android:layout_toEndOf="@+id/timeText" />
+        android:layout_alignRight="@+id/numberPickerSEC"
+        android:layout_alignEnd="@+id/numberPickerSEC" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="@string/stringPause"
-        android:id="@+id/buttonPause"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/buttonOne"
-        android:layout_alignStart="@+id/buttonOne"
-        android:background="@drawable/pause"/>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="@string/stringResume"
-        android:id="@+id/buttonResume"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/buttonOne"
-        android:layout_alignStart="@+id/buttonOne"
-        android:background="@drawable/resume"/>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:background="@drawable/circle_shape"
+        android:max="100"
+        android:progress="65"
+        android:indeterminate="false"
+        android:id="@+id/progressBar"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/stopRing"
         android:background="@drawable/bell"
-        android:layout_alignTop="@+id/mintext"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/timeText"
+        android:layout_toLeftOf="@+id/sectext"
+        android:layout_toStartOf="@+id/sectext" />
+
+    <Button
+        android:layout_width="175.5dp"
+        android:layout_height="78dp"
+        android:text="@string/buttonPause"
+        android:background="#F4D03F"
+        android:id="@+id/buttonPause"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="175.5dp"
+        android:layout_height="78dp"
+        android:text="@string/buttonResume"
+        android:background="#5DADE2"
+        android:id="@+id/buttonResume"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="175.5dp"
+        android:layout_height="78dp"
+        android:text="@string/buttonReset"
+        android:background="#CD6155"
+        android:id="@+id/buttonReset"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="385.5dp"
+        android:layout_height="78dp"
+        android:text="@string/buttonStart"
+        android:background="#58D68D"
+        android:id="@+id/buttonStart"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

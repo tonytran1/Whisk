@@ -95,19 +95,15 @@
         android:onClick="selectItem" />
 
 
-    <ImageButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Results"
         android:id="@+id/button"
         android:onClick="onSubmit"
-        android:background="@drawable/button_selector"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_toEndOf="@+id/vegan"
-        android:layout_alignTop="@+id/paleo"
-        android:layout_toRightOf="@+id/vegan" />
+        android:layout_alignLeft="@+id/carb"
+        android:layout_alignStart="@+id/carb" />
 
     <TextView
         android:layout_width="wrap_content"

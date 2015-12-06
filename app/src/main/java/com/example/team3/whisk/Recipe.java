@@ -144,7 +144,7 @@ public class Recipe extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), Timer.class);
+            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {

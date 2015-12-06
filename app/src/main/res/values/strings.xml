@@ -32,6 +32,22 @@
     <string name="stringResume">Resume</string>
     <string name="title_activity_timer_notification">TimerNotification</string>
     <string name="stopRingingString">Stop Ringing !!!</string>
+
+
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="favouriteString">Alert Tones</string>
+    <string name="chooseString">Choose the Alert Tones</string>
+
+    <string name="settingString">Setting</string>
+    <string name="buttonStart">Start</string>
+    <string name="buttonReset">Reset</string>
+    <string name="buttonResume">Resume</string>
+    <string name="buttonPause">Pause</string>
+    <string name="stringSec">sec</string>
+    <string name="stringMin">minute</string>
+    <string name="stringHr">hour</string>
     <string name="title_activity_urlview">URLView</string>
 
     <string name="title_section1">Section 1</string>
