@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -109,6 +108,7 @@ public class Filter extends AppCompatActivity
                                 String preference = gson.toJson(responseObj.getHits().get(position).getRecipe());
 
                                 foodText.clear();
+                                food.clear();
                                 for (int i = 0; i < recipe.getIngredients().size(); i++) {
                                     food.add((String) recipe.getIngredients().get(i).getFood());
                                 }

@@ -2,9 +2,6 @@ package com.example.team3.whisk;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -34,11 +32,10 @@ public class ItemActivity extends AppCompatActivity
         setContentView(R.layout.activity_item);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        productSearchArr.clear();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null)
         {
+            productSearchArr.clear();
             productSearchArr = bundle.getStringArrayList("foodList");
         }
 
@@ -67,10 +64,10 @@ public class ItemActivity extends AppCompatActivity
                      */
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(ItemActivity.this, ItemActivity.class); // the second ItemAcitivity should be for the super market activty
+                        Intent intent = new Intent(getApplicationContext(), MapsActivity.class); // the second ItemAcitivity should be for the super market activty
 
-                        //String item = itemSearchArr.get(position).replace(" ", "%20");
-                        //intent.putExtra("item", item);
+                        String item = productSearchArr.get(position).replace(" ","%20");
+                        intent.putExtra("item", item);
 
                         startActivity(intent);
                     }

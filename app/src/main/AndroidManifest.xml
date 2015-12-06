@@ -124,6 +124,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.URLView" />
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+            android:parentActivityName=".ItemActivity"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.team3.whisk.ItemActivity"
+                />
+        </activity>
     </application>
 
 </manifest>
