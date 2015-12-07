@@ -5,45 +5,70 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_ur_lview" tools:context="com.example.team3.whisk.URLView"
-    android:background="@drawable/wbg">
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click Plus Button For More Options"
+        android:gravity="center"
+        android:id="@+id/listText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <WebView
         android:id="@+id/webview"
+        android:layout_below="@+id/listText"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/nutrition_button"
-        android:background="@drawable/nutrition_button"
-        android:layout_alignRight="@+id/webview"
-        android:layout_alignEnd="@+id/webview"
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/recipe_button"
-        android:onClick="onNutritionClick"/>
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_menu"
+        app:menu_labels_ellipsize="end"
+        app:menu_labels_singleLine="true"
+        app:menu_backgroundColor="#ccffffff"
+        >
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/recipe_button"
-        android:background="@drawable/recipe_button_pressed"
-        android:layout_alignTop="@+id/shop_button"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/shop_button" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab1"
+            android:onClick="showAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:fab_size="mini"
+            app:fab_label="Save Recipe" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/shop_button"
-        android:background="@drawable/shop_button"
-        android:layout_alignLeft="@+id/webview"
-        android:layout_alignStart="@+id/webview"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/webview"
-        android:onClick="onMapsClick"/>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab2"
+            android:onClick="onMapsClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:fab_size="mini"
+            app:fab_label="Shop Ingredient" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab3"
+            android:onClick="onNutritionClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:fab_size="mini"
+            app:fab_label="Nutrition in Ingredients" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>
