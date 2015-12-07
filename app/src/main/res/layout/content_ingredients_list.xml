@@ -78,7 +78,11 @@
         android:background="@color/red"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,7 +92,11 @@
         android:background="@color/red"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/addButton"
-        android:layout_toStartOf="@+id/addButton" />
+        android:layout_toStartOf="@+id/addButton"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -100,7 +108,11 @@
         android:onClick="home"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
 
 
 </RelativeLayout>
