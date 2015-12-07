@@ -19,8 +19,8 @@
     <string name="title_activity_nutrition">Nutrition</string>
     <string name="title_activity_nutrition_output">NutritionOutput</string>
     <string name="title_activity_timer">Timer</string>
-    <string name="title_activity_timer_dennis">TimerDennis</string>
-    <string name="title_activity_preferences">Preferences</string>
+    <string name="title_activity_timer_dennis">Timer</string>
+    <string name="title_activity_preferences">Saved Recipes</string>
     <string name="time_text">0:00:00</string>
     <string name="button_begin">Start</string>
     <string name="button_end">Done</string>
@@ -48,7 +48,7 @@
     <string name="stringSec">sec</string>
     <string name="stringMin">minute</string>
     <string name="stringHr">hour</string>
-    <string name="title_activity_urlview">URLView</string>
+    <string name="title_activity_urlview">Recipe</string>
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -58,6 +58,6 @@
     <string name="title_activity_url_view">UrlView</string>
     <string name="title_activity_ur_lview">Recipe</string>
     <string name="title_activity_ingredients_list">Ingredients List</string>
-    <string name="title_activity_item">ItemActivity</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_item">Ingredients</string>
+    <string name="title_activity_maps">Super Market Locations</string>
 </resources>

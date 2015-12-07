@@ -10,10 +10,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.team3.whisk.ItemActivity"
-    tools:showIn="@layout/app_bar_item">
+    tools:showIn="@layout/app_bar_item"
+    android:background="@drawable/wbg">
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click Ingredient To Shop"
+        android:id="@+id/saveIngredientTittle"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/table_border"
+        android:gravity="center"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/productList"
+        android:layout_below="@+id/saveIngredientTittle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true" />

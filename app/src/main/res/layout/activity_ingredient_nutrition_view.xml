@@ -23,37 +23,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:id="@+id/nutritionList"
         android:layout_width="match_parent"
-        android:layout_height="375dp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/RecipeTitle" />
-
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/nutrition_button"
-        android:background="@drawable/nutrition_button_pressed"
-        android:layout_alignRight="@+id/nutritionList"
-        android:layout_alignEnd="@+id/nutritionList"
-        android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/recipe_button" />
-
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/recipe_button"
-        android:background="@drawable/recipe_button"
-        android:layout_alignTop="@+id/shop_button"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/shop_button"
-        android:onClick="onRecipeClick" />
-
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="7dp"
-        android:id="@+id/shop_button"
-        android:background="@drawable/shop_button"
-        android:layout_alignLeft="@+id/nutritionList"
-        android:layout_alignStart="@+id/nutritionList"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/nutritionList" />
 
 </RelativeLayout>

@@ -48,8 +48,8 @@
         android:text="Recipes Home"
         android:id="@+id/button2"
         android:onClick="home"
+        android:background="#e22a2a"
         android:layout_alignParentBottom="true"
-        android:layout_alignBottom="@+id/recipeList"
         android:layout_centerHorizontal="true" />
 
 

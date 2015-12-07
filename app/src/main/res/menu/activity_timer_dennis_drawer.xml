@@ -2,19 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_home" android:icon="@drawable/home"
+        <item android:id="@+id/nav_home" android:icon="@drawable/ic_star"
             android:title="Home" />
-        <item android:id="@+id/nav_timer" android:icon="@drawable/timer"
+        <item android:id="@+id/nav_timer" android:icon="@drawable/ic_star"
             android:title="Timer" />
-        <item android:id="@+id/nav_preferences" android:icon="@drawable/preferences"
+        <item android:id="@+id/nav_preferences" android:icon="@drawable/ic_star"
             android:title="Preferences" />
+        <item android:id="@+id/nav_ingredients" android:icon="@drawable/ic_star"
+            android:title="Ingredient List" />
 
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-        </menu>
-    </item>
 </menu>
