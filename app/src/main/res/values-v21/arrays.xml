@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Colors">
+        <item name="Melody One">Music Box</item>
+        <item name="Melody Two">Classic Tone</item>
+        <item name="Alert">Loud Alarm</item>
+        <item name="Siren">Siren</item>
+    </string-array>
+    <string-array name="ColorsValue">
+        <item name="1">musicbox</item>
+        <item name="2">prelude</item>
+        <item name="3">loudalarm</item>
+        <item name="4">tornadosiren</item>
+    </string-array>
+
+</resources>

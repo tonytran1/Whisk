@@ -153,6 +153,8 @@
                 android:value="com.example.team3.whisk.ItemActivity"
                 />
         </activity>
+        <activity android:name=".UserSettingActivity"
+            android:screenOrientation="locked"></activity>
     </application>
 
 </manifest>

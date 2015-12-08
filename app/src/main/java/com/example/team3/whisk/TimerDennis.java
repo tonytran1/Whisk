@@ -433,6 +433,46 @@ public class TimerDennis extends AppCompatActivity
         showUserSettings();
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        //Preference......
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        //Preference.....
+        switch (item.getItemId()) {
+
+            case R.id.menu_settings:
+                Intent i = new Intent(this, UserSettingActivity.class);
+                startActivityForResult(i, RESULT_SETTINGS);
+                break;
+        }
+        return true;
+    }
+
+    //Change setting of alert tone
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case RESULT_SETTINGS:
+                showUserSettings();
+                break;
+
+        }
+
+    }
+
     //Setting Up User's favourite Alert Tone
     private void showUserSettings() {
         SharedPreferences sharedPrefs = PreferenceManager
@@ -444,23 +484,18 @@ public class TimerDennis extends AppCompatActivity
 
             case "musicbox":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.musicbox);
-                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "prelude":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.prelude);
-                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "loudalarm":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.loudalarm);
-                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "tornadosiren":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.tornadosiren);
-                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             default:
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.loudalarm);
-                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
         }
 
     }
@@ -475,23 +510,18 @@ public class TimerDennis extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.timer_dennis, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
