@@ -15,7 +15,8 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +27,8 @@
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:parentActivityName=".SplashScreen"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.SplashScreen" />
@@ -35,8 +37,9 @@
             android:name=".Filter"
             android:label="@string/title_activity_filter"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
         </activity>
@@ -44,8 +47,9 @@
             android:name=".Recipe"
             android:label="@string/title_activity_recipe"
             android:parentActivityName=".Filter"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Filter" />
         </activity>
@@ -53,8 +57,9 @@
             android:name=".SearchNutrition"
             android:label="@string/title_activity_search_nutrition"
             android:parentActivityName=".Recipe"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Recipe" />
         </activity>
@@ -62,8 +67,9 @@
             android:name=".OutputNutrition"
             android:label="@string/title_activity_output_nutrition"
             android:parentActivityName=".SearchNutrition"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.SearchNutrition" />
         </activity>
@@ -71,8 +77,9 @@
             android:name=".TimerDennis"
             android:label="@string/title_activity_timer_dennis"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
         </activity>
@@ -80,8 +87,9 @@
             android:name=".Preferences"
             android:label="@string/title_activity_preferences"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
         </activity>
@@ -89,19 +97,23 @@
             android:name=".URLView"
             android:label="@string/title_activity_ur_lview"
             android:parentActivityName=".Filter"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Filter" />
         </activity>
         <activity
             android:name=".IngredientNutritionView"
-            android:label="title_activity_ingredient_nutrition_view" />
+            android:label="title_activity_ingredient_nutrition_view"
+            android:screenOrientation="locked"/>
+
         <activity
             android:name=".SearchIngredient"
             android:label="@string/title_activity_search_nutrition"
             android:parentActivityName=".Recipe"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Recipe" />
@@ -110,8 +122,9 @@
             android:name=".IngredientsList"
             android:label="@string/title_activity_ingredients_list"
             android:parentActivityName=".Home"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />
         </activity>
@@ -119,8 +132,9 @@
             android:name=".ItemActivity"
             android:label="@string/title_activity_item"
             android:parentActivityName=".URLView"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.URLView" />
         </activity>
@@ -132,8 +146,9 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:parentActivityName=".ItemActivity">
-            <meta-data
+            android:parentActivityName=".ItemActivity"
+            android:screenOrientation="locked">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.ItemActivity"
                 />
