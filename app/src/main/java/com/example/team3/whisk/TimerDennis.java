@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -430,7 +429,8 @@ public class TimerDennis extends AppCompatActivity
     }
 
     public void changeTones(View view){
-        showUserSettings();
+        Intent i = new Intent(this, UserSettingActivity.class);
+        startActivityForResult(i, RESULT_SETTINGS);
     }
 
 
@@ -509,19 +509,6 @@ public class TimerDennis extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
