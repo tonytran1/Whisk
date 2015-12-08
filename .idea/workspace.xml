@@ -149,7 +149,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9111222-0f83-4ce1-9cfa-0b37a058cfd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="t3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -170,12 +175,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TimerDennis.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimerDennis.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42825112">
+            <state vertical-scroll-proportion="0.0">
               <caret line="433" column="4" selection-start-line="433" selection-start-column="4" selection-end-line="433" selection-end-column="4" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/debug/res/xml/settings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="76" selection-start-line="1" selection-start-column="76" selection-end-line="1" selection-end-column="76" />
+              <folding>
+                <element signature="e#156#179#0" expanded="false" />
+                <element signature="e#323#345#0" expanded="false" />
+                <element signature="e#425#450#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content_timer_dennis.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
+              <folding>
+                <element signature="e#318#353#0" expanded="true" />
+                <element signature="e#379#414#0" expanded="true" />
+                <element signature="e#438#471#0" expanded="true" />
+                <element signature="e#498#531#0" expanded="true" />
+                <element signature="e#556#596#0" expanded="true" />
+                <element signature="e#908#927#0" expanded="true" />
+                <element signature="e#2302#2320#0" expanded="true" />
+                <element signature="e#2788#2807#0" expanded="true" />
+                <element signature="e#3314#3333#0" expanded="true" />
+                <element signature="e#4208#4229#0" expanded="true" />
+                <element signature="e#4569#4591#0" expanded="true" />
+                <element signature="e#4933#4954#0" expanded="true" />
+                <element signature="e#5395#5416#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2010,7 +2056,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_filter_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_home_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_ingredients_list_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_item_drawer.xml" />
@@ -2055,12 +2100,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ingredient_nutrition_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_item_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/MapsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/UserSettingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java" />
+        <option value="$PROJECT_DIR$/app/src/debug/res/xml/settings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" />
       </list>
     </option>
   </component>
@@ -2282,6 +2328,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2653,10 +2703,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29745042" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29745042" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39943343" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3141,17 +3191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.931034">
-          <caret line="153" column="36" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_timer_dennis.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3213,9 +3252,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42825112">
+        <state vertical-scroll-proportion="0.0">
           <caret line="433" column="4" selection-start-line="433" selection-start-column="4" selection-end-line="433" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/debug/res/xml/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="76" selection-start-line="1" selection-start-column="76" selection-end-line="1" selection-end-column="76" />
+          <folding>
+            <element signature="e#156#179#0" expanded="false" />
+            <element signature="e#323#345#0" expanded="false" />
+            <element signature="e#425#450#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
+          <folding>
+            <element signature="e#318#353#0" expanded="true" />
+            <element signature="e#379#414#0" expanded="true" />
+            <element signature="e#438#471#0" expanded="true" />
+            <element signature="e#498#531#0" expanded="true" />
+            <element signature="e#556#596#0" expanded="true" />
+            <element signature="e#908#927#0" expanded="true" />
+            <element signature="e#2302#2320#0" expanded="true" />
+            <element signature="e#2788#2807#0" expanded="true" />
+            <element signature="e#3314#3333#0" expanded="true" />
+            <element signature="e#4208#4229#0" expanded="true" />
+            <element signature="e#4569#4591#0" expanded="true" />
+            <element signature="e#4933#4954#0" expanded="true" />
+            <element signature="e#5395#5416#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

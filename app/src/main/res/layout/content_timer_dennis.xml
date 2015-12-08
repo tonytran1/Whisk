@@ -98,19 +98,10 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/stopRing"
-        android:background="@drawable/bell"
-        android:layout_alignTop="@+id/timeText"
-        android:layout_toLeftOf="@+id/sectext"
-        android:layout_toStartOf="@+id/sectext" />
-
-    <Button
         android:layout_width="175.5dp"
         android:layout_height="78dp"
         android:text="@string/buttonPause"
-        android:background="#F4D03F"
+        android:background="@drawable/pause_b"
         android:id="@+id/buttonPause"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -120,7 +111,7 @@
         android:layout_width="175.5dp"
         android:layout_height="78dp"
         android:text="@string/buttonResume"
-        android:background="#5DADE2"
+        android:background="@drawable/resume_b"
         android:id="@+id/buttonResume"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -130,17 +121,19 @@
         android:layout_width="175.5dp"
         android:layout_height="78dp"
         android:text="@string/buttonReset"
-        android:background="#CD6155"
+        android:background="@drawable/reset_b"
         android:id="@+id/buttonReset"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/buttonPause"
+        android:layout_toEndOf="@+id/buttonPause" />
 
     <Button
         android:layout_width="385.5dp"
         android:layout_height="78dp"
         android:text="@string/buttonStart"
-        android:background="#58D68D"
+        android:background="@drawable/start_b"
         android:id="@+id/buttonStart"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -153,7 +146,25 @@
         android:text="Change Tones"
         android:onClick="changeTones"
         android:id="@+id/button4"
+        android:background="@drawable/start_b"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/stopRing"
+        android:onClick="onSubmit"
+        android:background="@drawable/cancel_b"
+        android:text="CANCEL"
+        style="@style/button_text"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="46dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/buttonReset"
+        android:layout_alignLeft="@+id/buttonPause"
+        android:layout_alignStart="@+id/buttonPause" />
 
 </RelativeLayout>
