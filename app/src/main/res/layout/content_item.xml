@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Click Ingredient To Shop"
+        android:text="Click Ingredient To Locate Market"
         android:id="@+id/saveIngredientTittle"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"

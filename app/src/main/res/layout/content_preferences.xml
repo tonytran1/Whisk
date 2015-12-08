@@ -42,19 +42,22 @@
         android:layout_below="@+id/RecipeTitle"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        android:background="@drawable/search_b"
+        style="@style/button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recipes Home"
         android:id="@+id/button2"
         android:onClick="home"
-        android:background="#e22a2a"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:paddingEnd="20dp"
         android:paddingStart="20dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp" />
+        android:paddingBottom="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 

@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Click Below To See List"
+        android:text="Click Box To See List"
         android:id="@+id/listText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -106,19 +106,18 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find Recipes"
+        android:layout_height="60dp"
         android:id="@+id/button"
         android:onClick="onSubmit"
-        android:background="#e22a2a"
+        android:background="@drawable/search_b"
+        android:text="FIND RECIPES"
+        style="@style/button_text"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/sodium"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:paddingTop="40dp"
-        android:paddingBottom="40dp"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp" />
+        android:layout_marginBottom="46dp"
+        android:layout_alignLeft="@+id/paleo"
+        android:layout_alignStart="@+id/paleo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
