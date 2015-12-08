@@ -98,6 +98,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
            /* storeAdapter = new StoreAdapter(ProductActivity.this, -1,storeResultList);
             storeListView.setAdapter(storeAdapter);*/
         }
+
+        storeResultList = StoreXmlPullParser.getListFromFile(MapsActivity.this);
+        for (int i = 0; i < storeResultList.size() ; i++) {
+            downloadProduct = new DownloadTaskProduct();
+            downloadProduct.execute("http://www.supermarketapi.com/api.asmx/COMMERCIAL_SearchForItem?APIKEY=6471b24741" +
+                    "&StoreId=" + storeResultList.get(i).getStoreId() +
+                    "&ItemName=" +item);
+            productResultList = ProductXmlPullParser.getListFromFile(MapsActivity.this);
+            if (productResultList.isEmpty()) {
+                storeResultList.remove(i);
+            }else{
+                storeResultList.get(i).setAisleNumber(productResultList.get(0).getAisleNumber());
+            }
+        }
     }
 
 
@@ -139,7 +153,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         protected Void doInBackground(String... arg0) {
             //Download the file
             try {
-                storeResultList = StoreXmlPullParser.getListFromFile(MapsActivity.this);
                 Downloader.DownloadFromUrl(arg0[0],
                         openFileOutput("StoresByCityState.xml", Context.MODE_PRIVATE));
 
@@ -151,18 +164,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         protected void onPostExecute(Void result) {
-            for (int i = 0; i < storeResultList.size() ; i++) {
-                downloadProduct = new DownloadTaskProduct();
-                downloadProduct.execute("http://www.supermarketapi.com/api.asmx/COMMERCIAL_SearchForItem?APIKEY=6471b24741" +
-                        "&StoreId=" + storeResultList.get(i).getStoreId() +
-                        "&ItemName=" +item);
-                productResultList = ProductXmlPullParser.getListFromFile(MapsActivity.this);
-                if (productResultList.isEmpty()) {
-                    storeResultList.remove(i);
-                }else{
-                    storeResultList.get(i).setAisleNumber(productResultList.get(0).getAisleNumber());
-                }
-            }
         }
     }
 
@@ -182,9 +183,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         ArrayList list = new ArrayList();
-        String add = storeResultList.get(0).getAddress().toString();
-        String city = storeResultList.get(0).getCity().toString();
-        String state = storeResultList.get(0).getState().toString();
         for (int j=0; j<storeResultList.size(); j++){
             String completeAddress = storeResultList.get(j).getAddress().toString()+"," + storeResultList.get(j).getCity().toString()+"," + storeResultList.get(j).getState().toString();
             list.add(completeAddress);
