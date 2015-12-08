@@ -78,7 +78,7 @@ public class URLView extends AppCompatActivity
             nutrition = bundle.getStringArrayList("recipeNutrition");
             recipeURL = bundle.getString("recipeURL");
         }
-        setTitle(recipeName);
+        setTitle("Recipe");
         webView = (WebView) findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setBuiltInZoomControls(true);
