@@ -98,20 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
            /* storeAdapter = new StoreAdapter(ProductActivity.this, -1,storeResultList);
             storeListView.setAdapter(storeAdapter);*/
         }
-
-        storeResultList = StoreXmlPullParser.getListFromFile(MapsActivity.this);
-        for (int i = 0; i < storeResultList.size() ; i++) {
-            downloadProduct = new DownloadTaskProduct();
-            downloadProduct.execute("http://www.supermarketapi.com/api.asmx/COMMERCIAL_SearchForItem?APIKEY=6471b24741" +
-                    "&StoreId=" + storeResultList.get(i).getStoreId() +
-                    "&ItemName=" +item);
-            productResultList = ProductXmlPullParser.getListFromFile(MapsActivity.this);
-            if (productResultList.isEmpty()) {
-                storeResultList.remove(i);
-            }else{
-                storeResultList.get(i).setAisleNumber(productResultList.get(0).getAisleNumber());
-            }
-        }
     }
 
 
@@ -179,6 +165,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        storeResultList = StoreXmlPullParser.getListFromFile(MapsActivity.this);
+        for (int i = 0; i < storeResultList.size() ; i++) {
+            downloadProduct = new DownloadTaskProduct();
+            downloadProduct.execute("http://www.supermarketapi.com/api.asmx/COMMERCIAL_SearchForItem?APIKEY=6471b24741" +
+                    "&StoreId=" + storeResultList.get(i).getStoreId() +
+                    "&ItemName=" +item);
+            productResultList = ProductXmlPullParser.getListFromFile(MapsActivity.this);
+            if (productResultList.isEmpty()) {
+                storeResultList.remove(i);
+            }else{
+                storeResultList.get(i).setAisleNumber(productResultList.get(0).getAisleNumber());
+            }
+        }
         client = new AsyncHttpClient();
         mMap = googleMap;
 
