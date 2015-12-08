@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/splash"
-        android:src="@drawable/splashscreenimage"
+        android:src="@drawable/rsz_splash_screen_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"/>

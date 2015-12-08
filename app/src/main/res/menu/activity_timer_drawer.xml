@@ -7,9 +7,9 @@
         <item android:id="@+id/nav_timer" android:icon="@drawable/ic_star"
             android:title="Timer" />
         <item android:id="@+id/nav_preferences" android:icon="@drawable/ic_star"
-            android:title="Preferences" />
+            android:title="Favorite Recipes" />
         <item android:id="@+id/nav_ingredients" android:icon="@drawable/ic_star"
-            android:title="Ingredient List" />
+            android:title="Favorite Ingredients" />
 
     </group>
 
