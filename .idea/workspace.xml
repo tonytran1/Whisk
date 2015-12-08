@@ -149,13 +149,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9111222-0f83-4ce1-9cfa-0b37a058cfd4" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_timer_dennis.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="t3.iws" />
@@ -192,11 +191,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="149" column="47" selection-start-line="149" selection-start-column="47" selection-end-line="149" selection-end-column="47" />
-              <folding>
-                <element signature="e#625#643#0" expanded="true" />
-                <element signature="e#1049#1078#0" expanded="true" />
-                <element signature="e#6257#6286#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -204,12 +199,9 @@
       <file leaf-file-name="TimerDennis.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89260143">
+            <state vertical-scroll-proportion="11.025641">
               <caret line="462" column="71" selection-start-line="462" selection-start-column="71" selection-end-line="462" selection-end-column="71" />
-              <folding>
-                <element signature="e#15498#15499#0" expanded="true" />
-                <element signature="e#15532#15533#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -220,7 +212,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.172413">
+            <state vertical-scroll-proportion="0.0">
               <caret line="153" column="36" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="36" />
               <folding />
             </state>
@@ -242,7 +234,88 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#0#91272#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#14380#14381#0" expanded="false" />
+                <element signature="e#14430#14431#0" expanded="false" />
+                <element signature="e#14475#14476#0" expanded="false" />
+                <element signature="e#14522#14523#0" expanded="false" />
+                <element signature="e#15990#15991#0" expanded="false" />
+                <element signature="e#16039#16040#0" expanded="false" />
+                <element signature="e#16221#16222#0" expanded="false" />
+                <element signature="e#16271#16272#0" expanded="false" />
+                <element signature="e#16425#16426#0" expanded="false" />
+                <element signature="e#16478#16479#0" expanded="false" />
+                <element signature="e#16772#16773#0" expanded="false" />
+                <element signature="e#16825#16826#0" expanded="false" />
+                <element signature="e#17140#17141#0" expanded="false" />
+                <element signature="e#17191#17192#0" expanded="false" />
+                <element signature="e#17408#17409#0" expanded="false" />
+                <element signature="e#17462#17463#0" expanded="false" />
+                <element signature="e#17780#17781#0" expanded="false" />
+                <element signature="e#17835#17836#0" expanded="false" />
+                <element signature="e#18704#18705#0" expanded="false" />
+                <element signature="e#18753#18754#0" expanded="false" />
+                <element signature="e#19267#19268#0" expanded="false" />
+                <element signature="e#19326#19327#0" expanded="false" />
+                <element signature="e#20058#20059#0" expanded="false" />
+                <element signature="e#20122#20123#0" expanded="false" />
+                <element signature="e#20963#20964#0" expanded="false" />
+                <element signature="e#21022#21023#0" expanded="false" />
+                <element signature="e#21793#21794#0" expanded="false" />
+                <element signature="e#21840#21841#0" expanded="false" />
+                <element signature="e#22023#22024#0" expanded="false" />
+                <element signature="e#22071#22072#0" expanded="false" />
+                <element signature="e#22258#22259#0" expanded="false" />
+                <element signature="e#22307#22308#0" expanded="false" />
+                <element signature="e#22513#22514#0" expanded="false" />
+                <element signature="e#22563#22564#0" expanded="false" />
+                <element signature="e#22744#22745#0" expanded="false" />
+                <element signature="e#22794#22795#0" expanded="false" />
+                <element signature="e#23006#23007#0" expanded="false" />
+                <element signature="e#23059#23060#0" expanded="false" />
+                <element signature="e#23242#23243#0" expanded="false" />
+                <element signature="e#23298#23299#0" expanded="false" />
+                <element signature="e#24373#24374#0" expanded="false" />
+                <element signature="e#24402#24403#0" expanded="false" />
+                <element signature="e#25002#25003#0" expanded="false" />
+                <element signature="e#25061#25062#0" expanded="false" />
+                <element signature="e#26804#26805#0" expanded="false" />
+                <element signature="e#26846#26847#0" expanded="false" />
+                <element signature="e#56942#56943#0" expanded="false" />
+                <element signature="e#56990#56991#0" expanded="false" />
+                <element signature="e#57122#57123#0" expanded="false" />
+                <element signature="e#57171#57172#0" expanded="false" />
+                <element signature="e#57314#57315#0" expanded="false" />
+                <element signature="e#57364#57365#0" expanded="false" />
+                <element signature="e#57526#57527#0" expanded="false" />
+                <element signature="e#57577#57578#0" expanded="false" />
+                <element signature="e#57707#57708#0" expanded="false" />
+                <element signature="e#57758#57759#0" expanded="false" />
+                <element signature="e#58128#58129#0" expanded="false" />
+                <element signature="e#58185#58186#0" expanded="false" />
+                <element signature="e#59168#59169#0" expanded="false" />
+                <element signature="e#59215#59216#0" expanded="false" />
+                <element signature="e#60809#60810#0" expanded="false" />
+                <element signature="e#60848#60849#0" expanded="false" />
+                <element signature="e#61804#61805#0" expanded="false" />
+                <element signature="e#61854#61855#0" expanded="false" />
+                <element signature="e#63207#63208#0" expanded="false" />
+                <element signature="e#63263#63264#0" expanded="false" />
+                <element signature="e#63878#63879#0" expanded="false" />
+                <element signature="e#63927#63928#0" expanded="false" />
+                <element signature="e#70058#70066#0" expanded="false" />
+                <element signature="e#70804#70813#0" expanded="false" />
+                <element signature="e#73770#73771#0" expanded="false" />
+                <element signature="e#73812#73813#0" expanded="false" />
+                <element signature="e#83974#83975#0" expanded="false" />
+                <element signature="e#84019#84020#0" expanded="false" />
+                <element signature="e#86153#86154#0" expanded="false" />
+                <element signature="e#86210#86211#0" expanded="false" />
+                <element signature="e#91210#91211#0" expanded="false" />
+                <element signature="e#91268#91269#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -270,7 +343,7 @@
       <file leaf-file-name="IngredientNutritionView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/IngredientNutritionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5555553">
+            <state vertical-scroll-proportion="0.0">
               <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
               <folding />
             </state>
@@ -2191,6 +2264,170 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="t3">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2338,170 +2575,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="t3">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="t3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2713,7 +2786,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29745042" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39943343" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2722,7 +2795,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2795,14 +2868,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_ingredient_nutrition_view.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13452914">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/AppLocationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2829,7 +2894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2894,7 +2958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29596412">
           <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2943,7 +3006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5044843">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2973,7 +3035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="28" selection-start-line="19" selection-start-column="8" selection-end-line="44" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3096,7 +3157,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/IngredientNutritionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5555553">
+        <state vertical-scroll-proportion="0.0">
           <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
           <folding />
         </state>
@@ -3106,7 +3167,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#91272#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#14380#14381#0" expanded="false" />
+            <element signature="e#14430#14431#0" expanded="false" />
+            <element signature="e#14475#14476#0" expanded="false" />
+            <element signature="e#14522#14523#0" expanded="false" />
+            <element signature="e#15990#15991#0" expanded="false" />
+            <element signature="e#16039#16040#0" expanded="false" />
+            <element signature="e#16221#16222#0" expanded="false" />
+            <element signature="e#16271#16272#0" expanded="false" />
+            <element signature="e#16425#16426#0" expanded="false" />
+            <element signature="e#16478#16479#0" expanded="false" />
+            <element signature="e#16772#16773#0" expanded="false" />
+            <element signature="e#16825#16826#0" expanded="false" />
+            <element signature="e#17140#17141#0" expanded="false" />
+            <element signature="e#17191#17192#0" expanded="false" />
+            <element signature="e#17408#17409#0" expanded="false" />
+            <element signature="e#17462#17463#0" expanded="false" />
+            <element signature="e#17780#17781#0" expanded="false" />
+            <element signature="e#17835#17836#0" expanded="false" />
+            <element signature="e#18704#18705#0" expanded="false" />
+            <element signature="e#18753#18754#0" expanded="false" />
+            <element signature="e#19267#19268#0" expanded="false" />
+            <element signature="e#19326#19327#0" expanded="false" />
+            <element signature="e#20058#20059#0" expanded="false" />
+            <element signature="e#20122#20123#0" expanded="false" />
+            <element signature="e#20963#20964#0" expanded="false" />
+            <element signature="e#21022#21023#0" expanded="false" />
+            <element signature="e#21793#21794#0" expanded="false" />
+            <element signature="e#21840#21841#0" expanded="false" />
+            <element signature="e#22023#22024#0" expanded="false" />
+            <element signature="e#22071#22072#0" expanded="false" />
+            <element signature="e#22258#22259#0" expanded="false" />
+            <element signature="e#22307#22308#0" expanded="false" />
+            <element signature="e#22513#22514#0" expanded="false" />
+            <element signature="e#22563#22564#0" expanded="false" />
+            <element signature="e#22744#22745#0" expanded="false" />
+            <element signature="e#22794#22795#0" expanded="false" />
+            <element signature="e#23006#23007#0" expanded="false" />
+            <element signature="e#23059#23060#0" expanded="false" />
+            <element signature="e#23242#23243#0" expanded="false" />
+            <element signature="e#23298#23299#0" expanded="false" />
+            <element signature="e#24373#24374#0" expanded="false" />
+            <element signature="e#24402#24403#0" expanded="false" />
+            <element signature="e#25002#25003#0" expanded="false" />
+            <element signature="e#25061#25062#0" expanded="false" />
+            <element signature="e#26804#26805#0" expanded="false" />
+            <element signature="e#26846#26847#0" expanded="false" />
+            <element signature="e#56942#56943#0" expanded="false" />
+            <element signature="e#56990#56991#0" expanded="false" />
+            <element signature="e#57122#57123#0" expanded="false" />
+            <element signature="e#57171#57172#0" expanded="false" />
+            <element signature="e#57314#57315#0" expanded="false" />
+            <element signature="e#57364#57365#0" expanded="false" />
+            <element signature="e#57526#57527#0" expanded="false" />
+            <element signature="e#57577#57578#0" expanded="false" />
+            <element signature="e#57707#57708#0" expanded="false" />
+            <element signature="e#57758#57759#0" expanded="false" />
+            <element signature="e#58128#58129#0" expanded="false" />
+            <element signature="e#58185#58186#0" expanded="false" />
+            <element signature="e#59168#59169#0" expanded="false" />
+            <element signature="e#59215#59216#0" expanded="false" />
+            <element signature="e#60809#60810#0" expanded="false" />
+            <element signature="e#60848#60849#0" expanded="false" />
+            <element signature="e#61804#61805#0" expanded="false" />
+            <element signature="e#61854#61855#0" expanded="false" />
+            <element signature="e#63207#63208#0" expanded="false" />
+            <element signature="e#63263#63264#0" expanded="false" />
+            <element signature="e#63878#63879#0" expanded="false" />
+            <element signature="e#63927#63928#0" expanded="false" />
+            <element signature="e#70058#70066#0" expanded="false" />
+            <element signature="e#70804#70813#0" expanded="false" />
+            <element signature="e#73770#73771#0" expanded="false" />
+            <element signature="e#73812#73813#0" expanded="false" />
+            <element signature="e#83974#83975#0" expanded="false" />
+            <element signature="e#84019#84020#0" expanded="false" />
+            <element signature="e#86153#86154#0" expanded="false" />
+            <element signature="e#86210#86211#0" expanded="false" />
+            <element signature="e#91210#91211#0" expanded="false" />
+            <element signature="e#91268#91269#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3114,7 +3256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3146,11 +3287,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="149" column="47" selection-start-line="149" selection-start-column="47" selection-end-line="149" selection-end-column="47" />
-          <folding>
-            <element signature="e#625#643#0" expanded="true" />
-            <element signature="e#1049#1078#0" expanded="true" />
-            <element signature="e#6257#6286#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3178,7 +3315,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.172413">
+        <state vertical-scroll-proportion="0.0">
           <caret line="153" column="36" selection-start-line="153" selection-start-column="36" selection-end-line="153" selection-end-column="36" />
           <folding />
         </state>
@@ -3186,12 +3323,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/team3/whisk/TimerDennis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89260143">
+        <state vertical-scroll-proportion="11.025641">
           <caret line="462" column="71" selection-start-line="462" selection-start-column="71" selection-end-line="462" selection-end-column="71" />
-          <folding>
-            <element signature="e#15498#15499#0" expanded="true" />
-            <element signature="e#15532#15533#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
