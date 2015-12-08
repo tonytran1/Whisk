@@ -13,6 +13,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Click on ingredient to search additional brands"
         android:id="@+id/RecipeTitle"
+        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/table_border"
         android:gravity="center"

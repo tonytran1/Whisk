@@ -160,7 +160,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (productResultList.isEmpty()) {
                     storeResultList.remove(i);
                 }else{
-                    storeResultList.get(i).setItemName(productResultList.get(0).getItemName());
+                    storeResultList.get(i).setAisleNumber(productResultList.get(0).getAisleNumber());
                 }
             }
         }
@@ -203,7 +203,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     // Add a marker in Sydney and move the camera
                     LatLng location = new LatLng(lat, lng);
-                    mMap.addMarker(new MarkerOptions().position(location).title(storeResultList.get(finalI).getStorename()).snippet(storeResultList.get(finalI).getAddress()));
+                    mMap.addMarker(new MarkerOptions().position(location).title(storeResultList.get(finalI).getStorename()).snippet(storeResultList.get(finalI).getAddress() + "\n" + storeResultList.get(finalI).getAisleNumber()));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 11.5f));
                 }
