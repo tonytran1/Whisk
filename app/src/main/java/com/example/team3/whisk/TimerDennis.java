@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -428,6 +429,9 @@ public class TimerDennis extends AppCompatActivity
         }
     }
 
+    public void changeTones(View view){
+        showUserSettings();
+    }
 
     //Setting Up User's favourite Alert Tone
     private void showUserSettings() {
@@ -440,18 +444,23 @@ public class TimerDennis extends AppCompatActivity
 
             case "musicbox":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.musicbox);
+                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "prelude":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.prelude);
+                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "loudalarm":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.loudalarm);
+                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             case "tornadosiren":
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.tornadosiren);
+                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 break;
             default:
                 playClip = MediaPlayer.create(TimerDennis.this,R.raw.loudalarm);
+                playClip.setAudioStreamType(AudioManager.STREAM_MUSIC);
         }
 
     }
@@ -512,4 +521,6 @@ public class TimerDennis extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

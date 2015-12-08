@@ -260,7 +260,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch To List View "
+        android:text="Select from Favorite Ingredients"
         android:id="@+id/checkBox"
         android:onClick="viewChange"
         android:layout_below="@+id/dummy"
