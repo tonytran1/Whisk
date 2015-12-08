@@ -11,5 +11,4 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/table_border"
         android:textStyle="bold" />
-
 </RelativeLayout>
