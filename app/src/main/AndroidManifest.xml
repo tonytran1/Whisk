@@ -78,7 +78,8 @@
             android:label="@string/title_activity_timer_dennis"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="locked">
+            android:screenOrientation="locked"
+            android:launchMode="singleInstance">
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.team3.whisk.Home" />

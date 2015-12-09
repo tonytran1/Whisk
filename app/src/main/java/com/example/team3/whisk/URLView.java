@@ -30,8 +30,8 @@ import cz.msebera.android.httpclient.Header;
 public class URLView extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    final private String appID = "6e46f388";
-    final private String apiKey = "2490703873e386d480943a68e2b6dcf9";
+    final private String appID = "16de0c54";
+    final private String apiKey = "e87e735d38bbcb5732adbd79dea587dc";
     private WebView webView;
     private ArrayList<String> ingredient;
     private ArrayList<String> ingredientText;

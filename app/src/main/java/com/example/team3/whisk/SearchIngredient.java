@@ -26,8 +26,8 @@ import cz.msebera.android.httpclient.Header;
 public class SearchIngredient extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    final private String appID = "d310d646";
-    final private String apiKey = "bd677882f63f10d913d8e5447489e947";
+    final private String appID = "16de0c54";
+    final private String apiKey = "e87e735d38bbcb5732adbd79dea587dc";
     private String food;
     private ListView listView;
     private IngredientSearchResponse responseObj;

@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -20,8 +19,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class IngredientNutritionView extends AppCompatActivity {
 
-    final private String appID = "d310d646";
-    final private String apiKey = "bd677882f63f10d913d8e5447489e947";
+    final private String appID = "16de0c54";
+    final private String apiKey = "e87e735d38bbcb5732adbd79dea587dc";
     private ArrayList<String> ingredientName = new ArrayList<String>();
     private ArrayList<String> ingredientID = new ArrayList<String>();
     private ArrayList<String> recipeNutrition = new ArrayList<String>();
@@ -94,8 +93,8 @@ public class IngredientNutritionView extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                    Toast toast = Toast.makeText(IngredientNutritionView.this, "Error, could not resolve URL (Here)", Toast.LENGTH_LONG);
-                    toast.show();
+//                    Toast toast = Toast.makeText(IngredientNutritionView.this, "Error, could not resolve URL (Here)", Toast.LENGTH_LONG);
+//                    toast.show();
                 }
             });
         }
