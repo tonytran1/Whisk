@@ -58,7 +58,7 @@ public class URLView extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
-        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR, foodList VARCHAR)");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -185,9 +185,11 @@ public class URLView extends AppCompatActivity
                 String ingredientsText = "";
                 String ingredients = "";
                 String nutritions = "";
+                String foods = "";
                 ingredients = gson.toJson(ingredient);
                 ingredientsText = gson.toJson(ingredientText);
                 nutritions = gson.toJson(nutrition);
+                foods = gson.toJson(food);
                 if (nutritions != null){
                     nutritions = "";
                 }
@@ -196,9 +198,11 @@ public class URLView extends AppCompatActivity
                 }
                 else if (ingredientsText != null){
                     ingredientsText = "";
+                }else if (foods != null){
+                    foods = "";
                 }
 
-                String sql = "INSERT INTO favorites (recipeIngredientText, recipeIngredient, recipeName, recipeNutrition, recipeURL) VALUES ('"+ingredientsText+"', '"+ingredients+"', '"+recipeName+"', '"+nutritions+"', '"+recipeURL+"')";
+                String sql = "INSERT INTO favorites (recipeIngredientText, recipeIngredient, recipeName, recipeNutrition, recipeURL, foodList) VALUES ('"+ingredientsText+"', '"+ingredients+"', '"+recipeName+"', '"+nutritions+"', '"+recipeURL+"', '"+food+"')";
                 recipeDB.execSQL(sql);
                 Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
 

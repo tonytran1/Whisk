@@ -88,6 +88,7 @@ public class Preferences extends AppCompatActivity
             int recipeNameIndex = c.getColumnIndex("recipeName");
             int recipeNutritionIndex = c.getColumnIndex("recipeNutrition");
             int recipeURLIndex = c.getColumnIndex("recipeURL");
+            int foodListIndex = c.getColumnIndex("foodList");
             int idIndex = c.getColumnIndex("id");
 
             recipeName.clear();
@@ -95,6 +96,7 @@ public class Preferences extends AppCompatActivity
             ingredientText.clear();
             ingredient.clear();
             nutrition.clear();
+            food.clear();
             c.moveToFirst();
 
             while (c != null) {
@@ -104,6 +106,7 @@ public class Preferences extends AppCompatActivity
                 ingredientText.add(c.getString(recipeIngredientTextIndex));
                 ingredient.add(c.getString(recipeIngredientIndex));
                 nutrition.add(c.getString(recipeNutritionIndex));
+                food.add(c.getString(foodListIndex));
 
                 c.moveToNext();
             }
@@ -131,6 +134,7 @@ public class Preferences extends AppCompatActivity
                 ingredientText = gson.fromJson(ingredientText.get(position), type);
                 ingredient = gson.fromJson(ingredient.get(position), type);
                 nutrition = gson.fromJson(nutrition.get(position), type);
+                food = gson.fromJson(food.get(position), type);
 
                 Intent intent = new Intent(getApplicationContext(), URLView.class);
                 intent.putExtra("recipeURL", recipeURL.get(position));
@@ -138,7 +142,7 @@ public class Preferences extends AppCompatActivity
                 intent.putExtra("recipeIngredientText", ingredientText);
                 intent.putExtra("recipeIngredient", ingredient);
                 intent.putExtra("recipeNutrition", nutrition);
-
+                intent.putExtra("foodList", food);
                 //intent.putExtra("recipeId", recipeId);
                 startActivity(intent);
 
