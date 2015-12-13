@@ -1,9 +1,14 @@
 package com.example.team3.whisk;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -44,28 +49,28 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
         new Eula(this).show();
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
-        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR)");
+        recipeDB.execSQL("CREATE TABLE IF NOT EXISTS favorites (id INTEGER PRIMARY KEY, recipeIngredientText VARCHAR, recipeIngredient VARCHAR, recipeName VARCHAR, recipeNutrition VARCHAR, recipeURL VARCHAR, foodList VARCHAR)");
         recipeDB.execSQL("CREATE TABLE IF NOT EXISTS ingredients (id INTEGER PRIMARY KEY, ingredientName VARCHAR)");
         listText = (TextView) findViewById(R.id.listText);
         textView = (TextView) findViewById(R.id.textView);
-//        LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-//        if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
-//                !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-//            // Build the alert dialog
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setTitle("Location Services Not Active");
-//            builder.setMessage("Please enable Location Services and GPS");
-//            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialogInterface, int i) {
-//                    // Show location settings when the user acknowledges the alert dialog
-//                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//                    startActivity(intent);
-//                }
-//            });
-//            Dialog alertDialog = builder.create();
-//            alertDialog.setCanceledOnTouchOutside(false);
-//            alertDialog.show();
-//        }
+        LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            // Build the alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Location Services Not Active");
+            builder.setMessage("Please enable Location Services and GPS");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    // Show location settings when the user acknowledges the alert dialog
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                }
+            });
+            Dialog alertDialog = builder.create();
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
+        }
         editText = (EditText) findViewById(R.id.searchText);
         selectIngredients();
         multiSelectionSpinner = (MultiSelectionSpinner) findViewById(R.id.search);

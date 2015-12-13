@@ -502,12 +502,8 @@ public class TimerDennis extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent = new Intent(getApplicationContext(), Home.class);
+        startActivity(intent);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

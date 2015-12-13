@@ -202,7 +202,7 @@ public class URLView extends AppCompatActivity
                     foods = "";
                 }
 
-                String sql = "INSERT INTO favorites (recipeIngredientText, recipeIngredient, recipeName, recipeNutrition, recipeURL, foodList) VALUES ('"+ingredientsText+"', '"+ingredients+"', '"+recipeName+"', '"+nutritions+"', '"+recipeURL+"', '"+food+"')";
+                String sql = "INSERT INTO favorites (recipeIngredientText, recipeIngredient, recipeName, recipeNutrition, recipeURL, foodList) VALUES ('"+ingredientsText+"', '"+ingredients+"', '"+recipeName+"', '"+nutritions+"', '"+recipeURL+"', '"+foods+"')";
                 recipeDB.execSQL(sql);
                 Toast.makeText(this, "Recipe Saved", Toast.LENGTH_LONG).show();
 
