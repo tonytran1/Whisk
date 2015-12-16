@@ -8,6 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+/**     File name: SplashScreen.java
+ *
+ *      This class provides the SplashScreen of the application.
+ *
+ *      An image is set and is being rotated. This provides the animation of the splash screen.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class SplashScreen extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 3000;

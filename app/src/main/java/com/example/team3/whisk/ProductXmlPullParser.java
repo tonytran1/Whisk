@@ -11,6 +11,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**     File name: ProductXmlPullParser.java
+ *
+ *      This class parses the XML obtained by the URL to obtain the product searched
+ *      by keyword.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class ProductXmlPullParser {
     
     static final String KEY_PRODUCT = "Product_Commercial";

@@ -1,8 +1,14 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/11/4 0004.
+/**     File name: Store.java
+ *
+ *      This class contains a POJO (Plain old java object) written for the SuperMarket API response.
+ *      The POJO is used for obtaining information after parsing the XML.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
+
 public class Store /*implements Comparator<Store>, Comparable<Store>*/ {
     private String Storename = null;
     private String Address = null;

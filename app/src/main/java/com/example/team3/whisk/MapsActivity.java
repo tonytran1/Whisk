@@ -26,12 +26,26 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: MapsActivity.java
+ *
+ *      This activity allows for pinning the google map of locations of nearby stores that contains selected
+ *      ingredients.
+ *
+ *      This class uses the selected ingredient to obtain an address using XML Parsing
+ *      from the SuperMarket API. After obtaining the address from SuperMarket API, the activity then
+ *      uses the address to obtain geocoding information by parsing the Google Map API for viewing
+ *      on the integrated google map inside the application.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private static AsyncHttpClient client;
     private String url;
-    private MapsResponse responseObj;
+    private MapsPOJO responseObj;
     private static final String TAG = "ProductActivity";
 
     ListView storeListView;
@@ -95,8 +109,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             productAdapter = new ProductAdapter(MapsActivity.this, -1, productResultList);
             itemListView.setAdapter(productAdapter);
 
-           /* storeAdapter = new StoreAdapter(ProductActivity.this, -1,storeResultList);
-            storeListView.setAdapter(storeAdapter);*/
         }
     }
 
@@ -155,13 +167,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
+     *      Manipulates the map once available.
+     *      This callback is triggered when the map is ready to be used.
+     *      This is where we can add markers or lines, add listeners or move the camera. In this case,
+     *      we just add a marker near Sydney, Australia.
+     *      If Google Play services is not installed on the device, the user will be prompted to install
+     *      it inside the SupportMapFragment. This method will only be triggered once the user has
+     *      installed Google Play services and returned to the app.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -195,7 +207,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String responseStr = new String(responseBody);
                     Gson gson = new Gson();
-                    responseObj = gson.fromJson(responseStr, MapsResponse.class);
+                    responseObj = gson.fromJson(responseStr, MapsPOJO.class);
                     double lat = responseObj.getResults().get(0).getGeometry().getLocation().getLat();
                     double lng = responseObj.getResults().get(0).getGeometry().getLocation().getLng();
 
@@ -215,6 +227,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    /**     This method will add in the required strings for obtaining the URL that contains the
+     *      JSON that will be parsed.
+     *
+     *      @param address Contains the address obtained from parsing SuperMarket API.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURL(String address) {
         url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyD7dsCutDdpMuuR0PeKP3p6IaAM0esmRlw";
         return url;

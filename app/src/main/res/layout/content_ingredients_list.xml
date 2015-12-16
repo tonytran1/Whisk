@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.team3.whisk.IngredientsList"
+    tools:context="com.example.team3.whisk.SavedIngredientsList"
     tools:showIn="@layout/app_bar_ingredients_list">
 
     <TextView

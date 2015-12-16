@@ -23,6 +23,20 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: SearchIngredient.java
+ *
+ *      This class provides the activity for outputting similar ingredients for obtaining nutritional facts.
+ *
+ *      Each recipe contains nutritional information for each ingredient of the recipe. If the user
+ *      wants to view more similar ingredients, this activity will handle that. The activity does a Nutritionix API
+ *      call for similar ingredients. The list is then outputted on the screen. If the user presses
+ *      on an item from the list, another Nutritionix API call is engaged that will obtain nutritional
+ *      information on the list by expanding on the selected item on the list.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class SearchIngredient extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,8 +44,8 @@ public class SearchIngredient extends AppCompatActivity
     final private String apiKey = "e87e735d38bbcb5732adbd79dea587dc";
     private String food;
     private ListView listView;
-    private IngredientSearchResponse responseObj;
-    private IngredientNutritionResponse responseObjNutrition;
+    private IngredientSearchPOJO responseObj;
+    private IngredientNutritionPOJO responseObjNutrition;
     private String url;
     private IngredientSearchAdapter adapter;
     private Gson gson;
@@ -69,7 +83,7 @@ public class SearchIngredient extends AppCompatActivity
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String responseStr = new String(responseBody);
                 gson = new Gson();
-                responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                responseObj = gson.fromJson(responseStr, IngredientSearchPOJO.class);
                 adapter = new IngredientSearchAdapter(responseObj.getHits(), SearchIngredient.this);
                 listView.setAdapter(adapter);
                /* ListView foodSearch = (ListView) findViewById(R.id.);*/
@@ -88,7 +102,7 @@ public class SearchIngredient extends AppCompatActivity
                                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                                             String responseStr = new String(responseBody);
                                             gson = new Gson();
-                                            responseObjNutrition = gson.fromJson(responseStr, IngredientNutritionResponse.class);
+                                            responseObjNutrition = gson.fromJson(responseStr, IngredientNutritionPOJO.class);
                                             setView(view, responseObjNutrition);
 
                                             show.setVisibility(View.VISIBLE);
@@ -117,11 +131,17 @@ public class SearchIngredient extends AppCompatActivity
         });
     }
 
-    public void setView(View view, IngredientNutritionResponse responseObj) {
+    /**     This method outputs the GSON object containing all nutritional information on the screen from each
+     *      API call (One call per ingredient).
+     *
+     *      @param view User interface component for outputting nutritional infroamtion.
+     *      @param responseObj Containing the GSON response object after parsing the JSON.
+     */
+    public void setView(View view, IngredientNutritionPOJO responseObj) {
         TextView title = (TextView) view.findViewById(R.id.NutritionTitle);
         title.setText(responseObj.getItem_name());
 
-        IngredientNutritionResponse item = responseObj;
+        IngredientNutritionPOJO item = responseObj;
 
         TextView fat = (TextView) view.findViewById(R.id.fat);
         try {
@@ -193,13 +213,23 @@ public class SearchIngredient extends AppCompatActivity
             vitC.setText("N/A");
         }
     }
-
+    /**     This method obtains the URL for parsing which will contain a response of the list
+     *      of similar ingredients and their itemID.
+     *
+     *      @param food Contains the ingredient that will be searched.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURLBrand(String food)
     {
         url = "https://api.nutritionix.com/v1_1/search/"+food+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=" + appID + "&appKey=" + apiKey;
         return url;
     }
 
+    /**     This method obtains the URL for parsing each itemID which contains nutritional information.
+     *
+     *      @param itemID Contains the Nutritionix API item ID associated with each ingredient.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURLNutrition(String itemID) {
         url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=" + appID + "&appKey=" + apiKey;
         return url;
@@ -244,7 +274,7 @@ public class SearchIngredient extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -253,7 +283,7 @@ public class SearchIngredient extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

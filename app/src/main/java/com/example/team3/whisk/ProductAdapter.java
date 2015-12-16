@@ -1,8 +1,5 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/10/21 0021.
- */
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,10 +21,13 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
 import java.util.List;
 
-
-/*
- * Custom Adapter class that is responsible for holding the list of sites after they
- * get parsed out of XML and building row views to display them on the screen.
+/**     File name: ProductAdapter.java
+ *
+ *      Adapter class that is responsible for holding the list of sites after they
+ *      get parsed out of XML and building row views to display them on the screen.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
 public class ProductAdapter extends ArrayAdapter<Product> {
 

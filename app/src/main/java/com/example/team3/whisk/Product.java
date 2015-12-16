@@ -1,7 +1,12 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/11/2 0002.
+/**     File name: Product.java
+ *
+ *      This class contains a POJO (Plain old java object) written for the SuperMarket API response.
+ *      The POJO is used for obtaining information after parsing the XML.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
 public class Product {
     private String ItemName = null;

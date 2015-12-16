@@ -16,6 +16,15 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**     File name: ItemActivity.java
+ *
+ *      This class provides the activity for selecting an ingredient that will be searched
+ *      by the SuperMarket API to obtain nearby stores containing the ingredient.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class ItemActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -64,7 +73,7 @@ public class ItemActivity extends AppCompatActivity
                      */
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(getApplicationContext(), MapsActivity.class); // the second ItemAcitivity should be for the super market activty
+                        Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
 
                         String item = productSearchArr.get(position).replace(" ","%20");
                         intent.putExtra("item", item);
@@ -125,7 +134,7 @@ public class ItemActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -134,7 +143,7 @@ public class ItemActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

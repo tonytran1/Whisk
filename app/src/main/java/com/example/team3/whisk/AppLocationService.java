@@ -1,8 +1,13 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/11/13 0013.
+/**     File name: AppLocationService.java
+ *
+ *      This class provides the application location services.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;

@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_timer_dennis" tools:context="com.example.team3.whisk.TimerDennis">
+    tools:showIn="@layout/app_bar_timer_dennis" tools:context="com.example.team3.whisk.Timer">
 
     <TextView
         android:layout_width="350dp"

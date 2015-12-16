@@ -1,9 +1,5 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/10/21 0021.
- */
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +9,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
-/*
- * Custom Adapter class that is responsible for holding the list of sites after they
- * get parsed out of XML and building row views to display them on the screen.
+/**     File name: ItemAdapter.java
+ *
+ *      Adapter class that is responsible for holding the list of sites after they
+ *      get parsed out of XML and building row views to display them on the screen.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
+
 public class ItemAdapter extends BaseAdapter {
 
     private ArrayList<String> rItem;
@@ -50,11 +50,6 @@ public class ItemAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) rContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.activity_item_list, parent, false);
-
-//        TableLayout hide = (TableLayout) rowView.findViewById(R.id.nameTxt);
-//        hide.setVisibility(View.GONE);
-
-//        String item = (IngredientSearchResponse.HitsEntity) getItem(position);
 
         TextView nameTxt = (TextView) rowView.findViewById(R.id.nameTxt);
         nameTxt.setText(rItem.get(position));

@@ -11,12 +11,23 @@ import android.widget.TextView;
 import java.util.List;
 
 
+/**     File name: IngredientSearchAdapter.java
+ *
+ *      This class provides an adapter for showing a list from the Nutritionix API response.
+ *
+ *      The response contains a list of similar ingredients that the user may like to see nutritional
+ *      information on.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class IngredientSearchAdapter extends BaseAdapter
 {
-    private List<IngredientSearchResponse.HitsEntity> rItem;
+    private List<IngredientSearchPOJO.HitsEntity> rItem;
     private Context rContext;
 
-    public IngredientSearchAdapter(List<IngredientSearchResponse.HitsEntity> rItem, Context rContext)
+    public IngredientSearchAdapter(List<IngredientSearchPOJO.HitsEntity> rItem, Context rContext)
     {
         this.rItem = rItem;
         this.rContext = rContext;
@@ -47,7 +58,7 @@ public class IngredientSearchAdapter extends BaseAdapter
         TableLayout hide = (TableLayout) rowView.findViewById(R.id.nutritionList);
         hide.setVisibility(View.GONE);
 
-        IngredientSearchResponse.HitsEntity item = (IngredientSearchResponse.HitsEntity) getItem(position);
+        IngredientSearchPOJO.HitsEntity item = (IngredientSearchPOJO.HitsEntity) getItem(position);
 
         TextView ingredients = (TextView) rowView.findViewById(R.id.brandTitle);
         ingredients.setText(item.getFields().getBrand_name()+" "+item.getFields().getItem_name());

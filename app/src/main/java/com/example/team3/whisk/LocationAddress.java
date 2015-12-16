@@ -1,8 +1,5 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/11/13 0013.
- */
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
@@ -14,6 +11,14 @@ import android.util.Log;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+/**     File name: LocationAddress.java
+ *
+ *      This class is responsible for obtaining the location by geocoding the city and state.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
 
 public class LocationAddress {
     private static final String TAG = "LocationAddress";

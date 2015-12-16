@@ -9,9 +9,15 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
-/**
- * Created by abhi on 11/8/15.
+
+/**     File name: Eula.java
+ *
+ *      This class provides Eula (End User License Agreement for the Whisk application.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
+
 public class Eula {
 
     private String EULA_PREFIX = "eula_";

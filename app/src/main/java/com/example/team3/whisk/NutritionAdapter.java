@@ -1,9 +1,15 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Tony on 11/10/2015.
+/**     File name: NutritionAdapter.java
+ *
+ *      This class provides an adapter for outputting nutritional information.
+ *
+ *      After using GSON to obtain a response object, this adapter is for setting and viewing
+ *      the information on the screen.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +21,10 @@ import java.util.ArrayList;
 
 public class NutritionAdapter extends BaseAdapter
 {
-    private ArrayList<IngredientNutritionResponse> rItem;
+    private ArrayList<IngredientNutritionPOJO> rItem;
     private Context rContext;
 
-    public NutritionAdapter(ArrayList<IngredientNutritionResponse> rItem, Context rContext)
+    public NutritionAdapter(ArrayList<IngredientNutritionPOJO> rItem, Context rContext)
     {
         this.rItem = rItem;
         this.rContext = rContext;
@@ -46,7 +52,7 @@ public class NutritionAdapter extends BaseAdapter
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.content_output_nutrition, parent, false);
 
-        IngredientNutritionResponse item = (IngredientNutritionResponse) getItem(position);
+        IngredientNutritionPOJO item = (IngredientNutritionPOJO) getItem(position);
 
         TextView title = (TextView) rowView.findViewById(R.id.NutritionTitle);
         title.setText(item.getItem_name());

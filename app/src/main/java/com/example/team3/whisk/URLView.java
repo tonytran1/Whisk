@@ -27,6 +27,19 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: URLView.java
+ *
+ *      This class provides the web viewing activity.
+ *
+ *      The URL of the web view is obtained by parsing Edamam's API response for the selected recipe.
+ *      The web view allows the user to access the URL directly from within the application. From here,
+ *      the user can view nutritional information via Nutritionix API or search stores for the ingredients of the recipe
+ *      via SuperMarket API using the ingredients obtained from the recipe.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class URLView extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,7 +52,7 @@ public class URLView extends AppCompatActivity
     private ArrayList<String> ingredientID = new ArrayList<String>();
     private ArrayList<String> ingredientName = new ArrayList<String>();
     private ArrayList<String> food = new ArrayList<String>();
-    private IngredientSearchResponse responseObj;
+    private IngredientSearchPOJO responseObj;
     private String recipeURL;
     private String recipeName;
     private String JSONURL;
@@ -86,23 +99,22 @@ public class URLView extends AppCompatActivity
         webView.loadUrl(recipeURL);
     }
 
+    /**     This method obtains the URL containing the ingredient nutritional information.
+     *
+     *      @param ingredient Contains the ingredient that will be searched.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURL(String ingredient)
     {
         JSONURL = "https://api.nutritionix.com/v1_1/search/"+ingredient+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=" + appID + "&appKey=" + apiKey;
         return JSONURL;
     }
 
-
-    /*public void onIngredientClick(View view)
-    {
-        Intent intent = new Intent(URLView.this, Recipe.class);
-        intent.putExtra("recipeIngredientText", ingredientText);
-        intent.putExtra("recipeIngredient", ingredient);
-        intent.putExtra("recipeName", recipeName);
-        intent.putExtra("recipeNutrition", nutrition);
-        startActivity(intent);
-    }*/
-
+    /**     When the nutrition is pressed on, this method will activate into Nutritionix API calls
+     *      which will contain all the required nutritional information from each ingredient.
+     *
+     *      @param view
+     */
     public void onNutritionClick(View view)
     {
         ingredientID.clear();
@@ -117,7 +129,7 @@ public class URLView extends AppCompatActivity
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String responseStr = new String(responseBody);
                     gson = new Gson();
-                    responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                    responseObj = gson.fromJson(responseStr, IngredientSearchPOJO.class);
                     ingredientName.add(responseObj.getHits().get(0).getFields().getItem_name());
                     ingredientID.add(responseObj.getHits().get(0).getFields().getItem_id());
 
@@ -279,7 +291,7 @@ public class URLView extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -288,7 +300,7 @@ public class URLView extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

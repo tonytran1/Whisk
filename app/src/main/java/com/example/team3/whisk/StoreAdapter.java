@@ -11,8 +11,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by Junt_T on 2015/11/19 0019.
+/**     File name: StoreAdapter.java
+ *
+ *      Adapter class that is responsible for outputting the list of stores and its information
+ *      after parsing SuperMarket API.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
 public class StoreAdapter extends ArrayAdapter<Store> {
 
@@ -35,8 +40,6 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         TextView aboutTxt = (TextView)row.findViewById(R.id.addressTxt);
         TextView idTxt = (TextView)row.findViewById(R.id.idTxt);
         TextView cityTxt = (TextView)row.findViewById(R.id.cityTxt);
-        //final ProgressBar indicator = (ProgressBar)row.findViewById(R.id.progress);
-
 
         //Set the relavent text in our TextViews
         nameTxt.setText(getItem(pos).getStorename());

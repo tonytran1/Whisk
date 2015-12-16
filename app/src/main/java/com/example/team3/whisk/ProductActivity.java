@@ -1,10 +1,5 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/10/21 0021.
- */
-
-
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -17,6 +12,20 @@ import android.widget.ListView;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+
+/**     File name: ProductActivity.java
+ *
+ *      Helper class to download XML from URL and get it ready for being parsed
+ *      by XMLPullParser.
+ *
+ *      This activity obtains the ingredients from the recipe and goes to two SuperMarket API calls to get
+ *      the address of eligible stores obtaining the selected ingredient.
+ *      The Google Map API will later be used to obtain geocoding information to display on the
+ *      google map.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
 
 public class ProductActivity extends Activity {
 
@@ -118,18 +127,14 @@ public class ProductActivity extends Activity {
         }
 
     }
-
+        /**     This method obtains the URL for parsing to check for ingredients in nearby stores.
+        *
+        *      @param searchItem Contains the ingredient being searched.
+        *      @return url Which will contain the XML that will be parsed by XMLPullParser.
+        */
         public String obtainProductURL(String searchItem) {
             String replacedItem = searchItem.replace(" ", "%20");
 
-            // String[] urlStringArray = new String[storeObjList.size()];
-//        for (int i = 0; i < storeObjList.size(); i++) {
-//            String URL = "http://www.supermarketapi.com/api.asmx/" +
-//                    "COMMERCIAL_SearchForItem?APIKEY=6471b24741&StoreId="
-//                    + storeObjList.get(i).getStoreId() + "&ItemName=" + replacedItem;
-//            urlStringArray[i] = URL;
-//        }
-//        return urlStringArray;
             String URL = "http://www.supermarketapi.com/api.asmx/SearchByProductName?APIKEY=6471b24741&ItemName="
                     + replacedItem;
             return URL;
@@ -169,8 +174,14 @@ public class ProductActivity extends Activity {
                 storeListView.setAdapter(storeAdapter);
             }
     }
+
+    /**     This method obtains the URL for parsing to obtain nearby stores.
+     *
+     *      @param city Contains the city.
+     *      @param state Contains the state.
+     *      @return url Which will contain the XML that will be parsed by XMLPullParser.
+     */
     public String obtainStoreURL(String city, String state) {
-//        String cityReplace = city.replace(" ", "%20");
         String URL = "http://www.supermarketapi.com/api.asmx/StoresByCityState?APIKEY=6471b24741&SelectedCity=San%20Francisco&SelectedState=CA";
         return URL;
     }

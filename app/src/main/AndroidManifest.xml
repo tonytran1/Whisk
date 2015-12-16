@@ -34,7 +34,7 @@
                 android:value="com.example.team3.whisk.SplashScreen" />
         </activity>
         <activity
-            android:name=".Filter"
+            android:name=".RecipeList"
             android:label="@string/title_activity_filter"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar"
@@ -46,12 +46,12 @@
         <activity
             android:name=".Recipe"
             android:label="@string/title_activity_recipe"
-            android:parentActivityName=".Filter"
+            android:parentActivityName=".RecipeList"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="locked">
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.team3.whisk.Filter" />
+                android:value=".RecipeList" />
         </activity>
         <activity
             android:name=".SearchNutrition"
@@ -74,7 +74,7 @@
                 android:value="com.example.team3.whisk.SearchNutrition" />
         </activity>
         <activity
-            android:name=".TimerDennis"
+            android:name=".Timer"
             android:label="@string/title_activity_timer_dennis"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar"
@@ -97,12 +97,12 @@
         <activity
             android:name=".URLView"
             android:label="@string/title_activity_ur_lview"
-            android:parentActivityName=".Filter"
+            android:parentActivityName=".RecipeList"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="locked">
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.team3.whisk.Filter" />
+                android:value=".RecipeList" />
         </activity>
         <activity
             android:name=".IngredientNutritionView"
@@ -120,7 +120,7 @@
                 android:value="com.example.team3.whisk.Recipe" />
         </activity>
         <activity
-            android:name=".IngredientsList"
+            android:name=".SavedIngredientsList"
             android:label="@string/title_activity_ingredients_list"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar"

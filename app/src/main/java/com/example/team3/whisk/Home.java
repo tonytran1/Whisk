@@ -27,6 +27,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**     File name: Home.java
+ *
+ *      This class provides the home screen activity.
+ *
+ *      The activity contains the search by ingredient and filter selection options.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -90,6 +100,8 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /**     Method for selecting ingredients from saved ingredient list.
+     */
     public void selectIngredients(){
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
@@ -109,6 +121,10 @@ public class Home extends AppCompatActivity
         }
     }
 
+    /**     Method for switching from manual search entry to saved ingredient selection.
+     *
+     *      @param view User interface component allowing user to interact with checkbox.
+            */
     public void viewChange(View view){
 
         checked = ((CheckBox) view).isChecked();
@@ -123,7 +139,7 @@ public class Home extends AppCompatActivity
             }
             else {
                 Toast.makeText(this, "First Enter The Ingredients In The List", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+                Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
                 startActivity(intent);
             }
         }
@@ -136,6 +152,10 @@ public class Home extends AppCompatActivity
 
     }
 
+    /**     Method for storing filter selections.
+     *
+     *      @param view User interface component allowing user to interact with checkboxes.
+     */
     public void selectItem(View view)
     {
         boolean checked = ((CheckBox) view).isChecked();
@@ -246,10 +266,14 @@ public class Home extends AppCompatActivity
 
     }
 
+    /**     Method for changing activity to search for recipes after making selections from home screen.
+     *
+     *      @param view User interface component for allowing user to interact with button.
+     */
     public void onSubmit(View view)
     {
         String search = obtainSearch();
-        Intent data = new Intent(Home.this, Filter.class);
+        Intent data = new Intent(Home.this, RecipeList.class);
         data.putExtra("list", param);
         data.putExtra("search", search);
         startActivity(data);
@@ -283,6 +307,7 @@ public class Home extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -295,7 +320,7 @@ public class Home extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -304,7 +329,7 @@ public class Home extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

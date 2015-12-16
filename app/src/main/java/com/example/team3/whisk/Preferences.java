@@ -27,6 +27,18 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**     File name: Preferences.java
+ *
+ *      This class contains the preferences activity which contains all saved recipes.
+ *
+ *      Recipes are saved from the URLView activity. The saved recipes will then be able to be
+ *      accessed here in the preferences activity. The user will be able to edit the saved
+ *      recipes in the preferences activity.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class Preferences extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,7 +50,7 @@ public class Preferences extends AppCompatActivity
     ArrayList<String> ingredient = new ArrayList<String>();
     ArrayList<String> ingredientText = new ArrayList<String>();
     ArrayList<String> nutrition = new ArrayList<String>();
-    EdamamResponse responseObj;
+    EdamamPOJO responseObj;
     RecipeAdapter adapter;
     Gson gson;
     ArrayAdapter arrayAdapter;
@@ -69,7 +81,9 @@ public class Preferences extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-
+    /**     This method updates the list of saved recipes in case a new recipe is added.
+     *
+     */
     public void updateListView() {
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
@@ -150,6 +164,9 @@ public class Preferences extends AppCompatActivity
         });
     }
 
+    /**     This method deletes items from the list by long pressing an individual item.
+     *
+     */
     public void deleteListView() {
 
         recipeDB = this.openOrCreateDatabase("Preferences", MODE_PRIVATE, null);
@@ -245,7 +262,7 @@ public class Preferences extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -254,7 +271,7 @@ public class Preferences extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

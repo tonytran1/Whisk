@@ -11,6 +11,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**     File name: StoreXmlPullParser.java
+ *
+ *      This class parses the XML obtained by the URL for store locations of nearby stores
+ *      containing the ingredient selected.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
 public class StoreXmlPullParser {
 
     static final String KEY_STORE = "Store";

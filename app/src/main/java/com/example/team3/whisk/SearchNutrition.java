@@ -22,13 +22,24 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: SearchNutrition.java
+ *
+ *      This class provides the activity for outputting similar ingredients for obtaining nutritional facts.
+ *
+ *      This activity using the Nutritionix API to obtain a list of ingredients obtained by searching
+ *      a keyword.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class SearchNutrition extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private String food;
     private ListView listView;
-    private IngredientSearchResponse responseObj;
+    private IngredientSearchPOJO responseObj;
     private String url;
     private IngredientSearchAdapter adapter;
     private Gson gson;
@@ -74,7 +85,7 @@ public class SearchNutrition extends AppCompatActivity
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String responseStr = new String(responseBody);
                 gson = new Gson();
-                responseObj = gson.fromJson(responseStr, IngredientSearchResponse.class);
+                responseObj = gson.fromJson(responseStr, IngredientSearchPOJO.class);
                 adapter = new IngredientSearchAdapter(responseObj.getHits(), SearchNutrition.this);
                 listView.setAdapter(adapter);
                /* ListView foodSearch = (ListView) findViewById(R.id.);*/
@@ -101,7 +112,12 @@ public class SearchNutrition extends AppCompatActivity
     }
 
 
-
+    /**     This method obtains the URL for parsing which will contain a response of the list
+     *      of similar ingredients and their itemID.
+     *
+     *      @param food Contains the ingredient that will be searched.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURL(String food)
     {
         url = "https://api.nutritionix.com/v1_1/search/"+food+"?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=d310d646&appKey=bd677882f63f10d913d8e5447489e947";
@@ -147,7 +163,7 @@ public class SearchNutrition extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -156,7 +172,7 @@ public class SearchNutrition extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

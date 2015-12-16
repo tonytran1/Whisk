@@ -17,6 +17,15 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: IngredientNutritionView
+ *
+ *      This class provides the activity for nutritional facts. The activity obtains nutritional
+ *      information from each ingredient for the recipe selected
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class IngredientNutritionView extends AppCompatActivity {
 
     final private String appID = "16de0c54";
@@ -27,7 +36,7 @@ public class IngredientNutritionView extends AppCompatActivity {
     private ArrayList<String> recipeIngredient = new ArrayList<String>();
     private ArrayList<String> ingredientText = new ArrayList<String>();
     private ArrayList<String> food = new ArrayList<String>();
-    private ArrayList<IngredientNutritionResponse> responseObj = new ArrayList<IngredientNutritionResponse>();
+    private ArrayList<IngredientNutritionPOJO> responseObj = new ArrayList<IngredientNutritionPOJO>();
     private String url;
     private String ingredient;
     private String recipeName;
@@ -63,13 +72,15 @@ public class IngredientNutritionView extends AppCompatActivity {
         setTitle("Nutritional Facts");
 
         client = new AsyncHttpClient();
+        // For loop for each ingredient from recipe.
         for (int i = 0; i < ingredientID.size(); i++) {
+            // Obtain response from URL and parse with GSON.
             client.get(IngredientNutritionView.this, obtainURL(ingredientID.get(i)), new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String responseStr = new String(responseBody);
                     gson = new Gson();
-                    responseObj.add(gson.fromJson(responseStr, IngredientNutritionResponse.class));
+                    responseObj.add(gson.fromJson(responseStr, IngredientNutritionPOJO.class));
 
                     if (count == (ingredientID.size() - 1) )
                     {
@@ -119,6 +130,12 @@ public class IngredientNutritionView extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**     This method will add in the required strings for obtaining the URL that contains the
+     *      JSON that will be parsed.
+     *
+     *      @param itemID Contains the Nutritionix API item ID associated with each ingredient.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURL(String itemID) {
         url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=" + appID + "&appKey=" + apiKey;
         return url;
@@ -138,7 +155,7 @@ public class IngredientNutritionView extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onRecipeClick(View view)
+/*    public void onRecipeClick(View view)
     {
         Intent intent = new Intent(IngredientNutritionView.this, URLView.class);
         intent.putExtra("recipeIngredient", recipeIngredient);
@@ -149,5 +166,5 @@ public class IngredientNutritionView extends AppCompatActivity {
         intent.putExtra("foodList", food);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-    }
+    }*/
 }

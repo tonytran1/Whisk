@@ -21,6 +21,15 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
+/**     File name: OutputNutrition.java
+ *
+ *      This class provides the activity for outputting individual ingredient nutritional information
+ *      from the list of similar ingredients.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class OutputNutrition extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,7 +37,7 @@ public class OutputNutrition extends AppCompatActivity
     final private String apiKey = "bd677882f63f10d913d8e5447489e947";
     private String itemID;
     private View view;
-    private IngredientNutritionResponse responseObj;
+    private IngredientNutritionPOJO responseObj;
     private String url;
     private Gson gson;
     private static AsyncHttpClient client;
@@ -71,7 +80,7 @@ public class OutputNutrition extends AppCompatActivity
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String responseStr = new String(responseBody);
                 gson = new Gson();
-                responseObj = gson.fromJson(responseStr, IngredientNutritionResponse.class);
+                responseObj = gson.fromJson(responseStr, IngredientNutritionPOJO.class);
                 setView(responseObj);
             }
 
@@ -83,17 +92,27 @@ public class OutputNutrition extends AppCompatActivity
         });
     }
 
-
+    /**     This method will add in the required strings for obtaining the URL that contains the
+     *      JSON that will be parsed.
+     *
+     *      @param itemID Contains the Nutritionix API item ID associated with each ingredient.
+     *      @return url Which will contain the JSON that will be parsed by GSON.
+     */
     public String obtainURL(String itemID) {
         url = "https://api.nutritionix.com/v1_1/item?id=" + itemID + "&appId=" + appID + "&appKey=" + apiKey;
         return url;
     }
 
-    public void setView(IngredientNutritionResponse responseObj) {
+    /**     This method outputs the GSON object containing all nutritional information on the screen from each
+     *      API call (One call per ingredient).
+     *
+     *      @param responseObj Containing the GSON response object after parsing the JSON.
+     */
+    public void setView(IngredientNutritionPOJO responseObj) {
         TextView title = (TextView) findViewById(R.id.NutritionTitle);
         title.setText(responseObj.getItem_name());
 
-        IngredientNutritionResponse item = responseObj;
+        IngredientNutritionPOJO item = responseObj;
 
         TextView fat = (TextView) findViewById(R.id.fat);
         try {
@@ -209,7 +228,7 @@ public class OutputNutrition extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -218,7 +237,7 @@ public class OutputNutrition extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

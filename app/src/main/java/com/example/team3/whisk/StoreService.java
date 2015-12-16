@@ -1,9 +1,5 @@
 package com.example.team3.whisk;
 
-/**
- * Created by Junt_T on 2015/11/4 0004.
- */
-
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
@@ -19,6 +15,14 @@ import android.util.Log;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**     File name: StoreService.java
+ *
+ *      Helper class to download XML from URL and get it ready for being parsed
+ *      by XMLPullParser.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
 public class StoreService extends Service {
     private static  final String TAG = "StoreService";
 
@@ -35,30 +39,6 @@ public class StoreService extends Service {
 
         appLocationService = new AppLocationService(
                 StoreService.this);
-
-        /*
-        Location gpsLocation = appLocationService
-                .getLocation(LocationManager.GPS_PROVIDER);
-        if (gpsLocation != null) {
-            double latitude = gpsLocation.getLatitude();
-            double longitude = gpsLocation.getLongitude();
-            Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-
-            try {
-                List<Address> addressList = geocoder.getFromLocation(
-                        latitude, longitude, 1);
-                if (addressList != null && addressList.size() > 0) {
-                    Address address = addressList.get(0);
-                    searchCity = address.getLocality();
-                    searchState = address.getAdminArea();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "Unable connect to Geocoder", e);
-            }
-        } else {
-            showSettingsAlert();
-        }
-        */
 
         if (isNetworkAvailable()) {
             Log.i(TAG, "starting download Task");
@@ -84,7 +64,7 @@ public class StoreService extends Service {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    /*
+    /**
 	 * AsyncTask that will download the xml file for us and store it locally.
 	 * After the download is done we'll parse the local file.
 	 */
@@ -103,6 +83,12 @@ public class StoreService extends Service {
         }
     }
 
+    /**     This method obtains the URL for parsing to obtain nearby stores.
+     *
+     *      @param city Contains the city.
+     *      @param state Contains the state.
+     *      @return url Which will contain the XML that will be parsed by XMLPullParser.
+     */
     public String obtainURL(String city, String state) {
         String cityReplace = city.replace(" ", "%20");
         String URL = "http://www.supermarketapi.com/api.asmx/StoresByCityState?APIKEY=6471b24741&SelectedCity=San%20Francisco&SelectedState=CA";

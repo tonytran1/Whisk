@@ -14,13 +14,21 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**     File name: RecipeAdapter.java
+ *
+ *      This class provides an adapter for formatting the output of the recipe list obtained
+ *      after searching from the home screen.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
 
 public class RecipeAdapter extends BaseAdapter
 {
-    private List<EdamamResponse.HitsEntity> rItem;
+    private List<EdamamPOJO.HitsEntity> rItem;
     private Context rContext;
 
-    public RecipeAdapter(List<EdamamResponse.HitsEntity> rItem, Context rContext)
+    public RecipeAdapter(List<EdamamPOJO.HitsEntity> rItem, Context rContext)
     {
         this.rItem = rItem;
         this.rContext = rContext;
@@ -47,7 +55,7 @@ public class RecipeAdapter extends BaseAdapter
         LayoutInflater inflater = (LayoutInflater) rContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.list_recipe, parent, false);
-        EdamamResponse.HitsEntity item = (EdamamResponse.HitsEntity) getItem(position);
+        EdamamPOJO.HitsEntity item = (EdamamPOJO.HitsEntity) getItem(position);
 
         ImageView thumbnail = (ImageView) rowView.findViewById(R.id.thumbnail);
         Picasso.with(rContext).load(item.getRecipe().getImage()).into(thumbnail);
@@ -64,56 +72,7 @@ public class RecipeAdapter extends BaseAdapter
         TextView servings = (TextView) rowView.findViewById(R.id.servings);
         servings.setText(serv);
 
-   /*     TextView ingredients = (TextView) rowView.findViewById(R.id.ingredients);
-        ingredients.setText(obtainNutrition(item.getRecipe()).toString());*/
-        //ingredients.setText(item.getRecipe().getIngredientLines().toString());
-
         return rowView;
     }
 
-    public ArrayList<String> obtainNutrition(EdamamResponse.HitsEntity.RecipeEntity recipe)
-    {
-        ArrayList<String> recipeNutrition = new ArrayList<String>();
-        DecimalFormat df = new DecimalFormat("0.00");
-
-        EdamamResponse.HitsEntity.RecipeEntity.TotalNutrientsEntity nutrition = recipe.getTotalNutrients();
-
-        try {
-            recipeNutrition.add("Calories: " + df.format(nutrition.getENERC_KCAL().getQuantity()) + "Cal\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Fat: " + df.format(nutrition.getFAT().getQuantity()) + nutrition.getFAT().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Sugar: " + df.format(nutrition.getSUGAR().getQuantity()) + nutrition.getSUGAR().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Protein: " + df.format(nutrition.getPROCNT().getQuantity()) + nutrition.getPROCNT().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Cholesterol: " + df.format(nutrition.getCHOLE().getQuantity()) + nutrition.getCHOLE().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Sodium: " + df.format(nutrition.getNA().getQuantity()) + nutrition.getNA().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Calcium: " + df.format(nutrition.getCA().getQuantity()) + nutrition.getCA().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Vitamin A: " + df.format(recipe.getTotalDaily().getVITA_RAE().getQuantity()) + recipe.getTotalDaily().getVITA_RAE().getUnit() + "\n");
-        }   catch(NullPointerException e){}
-
-        try {
-            recipeNutrition.add("Vitamin C: " + df.format(recipe.getTotalDaily().getVITC().getQuantity()) + recipe.getTotalDaily().getVITC().getUnit());
-        }   catch(NullPointerException e){}
-
-        return recipeNutrition;
-    }
 }

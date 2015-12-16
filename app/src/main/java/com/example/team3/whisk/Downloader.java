@@ -10,9 +10,14 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-/*
- * Helper class for downloading a file.
+/**     File name: Downloader.java
+ *
+ *      Helper class for downloading files. Will be used to download XML file for XML Parsing.
+ *
+ *      @author Team 3
+ *      @version 1.00
  */
+
 public class Downloader {
 
 	//Tag for Log statements

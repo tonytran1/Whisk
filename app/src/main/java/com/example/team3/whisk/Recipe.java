@@ -19,6 +19,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**     File name: RecipeList.java
+ *
+ *      This class provides the recipe list of recipes found from the search from the home screen.
+ *
+ *      The activity uses the parameters obtained the home screen (search bar and filter selections)
+ *      and uses them to parse through the Edamam API. A response is then obtained using GSON to
+ *      get a list of recipes which the user can select from.
+ *
+ *      @author Team 3
+ *      @version 1.00
+ */
+
 public class Recipe extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -131,7 +143,7 @@ public class Recipe extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_timer) {
 
-            Intent intent = new Intent(getApplicationContext(), TimerDennis.class);
+            Intent intent = new Intent(getApplicationContext(), Timer.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_preferences) {
@@ -140,7 +152,7 @@ public class Recipe extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_ingredients) {
-            Intent intent = new Intent(getApplicationContext(), IngredientsList.class);
+            Intent intent = new Intent(getApplicationContext(), SavedIngredientsList.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
